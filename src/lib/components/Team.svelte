@@ -13,7 +13,7 @@
 	let team = [
 		{ name: 'Kush Agarwal', img: kush, role: 'President', notes: 'Aerospace Engineering' },
 		{ name: 'Nathan Chan', img: nathan, role: 'Vice President', notes: 'Computer Science' },
-		{ name: 'Ioannis Achillieas (John) Nitsos', img: john, role: 'Chief Technology Officer', notes: 'Electrical Engineering' },
+		{ name: 'John Nitsos', img: john, role: 'Chief Technology Officer', notes: 'Electrical Engineering' },
 		{ name: 'Steven Wen', img: steven, role: 'Publicity', notes: 'Materials Engineering' },
 		{ name: 'Aiden Wong', img: aiden, role: 'Webmaster', notes: 'Computer Science' },
 		{ name: 'Kevin Chen', img: kevin, role: 'Secretary', notes: 'Computer Science' },
@@ -35,12 +35,12 @@
 		</div>
 		<ul
 			role="list"
-			class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4"
+			class="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-4 md:gap-8 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4"
 		>
 			{#each team as member}
 				<li>
 					<img
-						class="aspect-[14/13] w-full rounded-2xl object-cover"
+						class="aspect-[14/13] w-full rounded-md object-cover"
 						src={member.img}
 						alt={member.name}
 					/>

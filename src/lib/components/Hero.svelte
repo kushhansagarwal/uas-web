@@ -2,6 +2,7 @@
 	import logo from '$lib/assets/logo.svg';
 	import bp1 from '$lib/assets/bp-1.svg';
 	import { onMount } from 'svelte';
+	import Nav from './Nav.svelte';
 
 	let words = ['design', 'teach', 'research'];
 	let currentWordIndex = 0;
@@ -50,6 +51,7 @@
 </script>
 
 <div class="relative isolate overflow-hidden bg-gray-900">
+    <Nav></Nav>
 	<svg
 		class="absolute inset-0 -z-10 h-full w-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
 		aria-hidden="true"
@@ -91,13 +93,13 @@
 	<div class="mx-auto max-w-7xl px-10 pb-24 pt-20 sm:pb-32 lg:flex lg:px-8 lg:py-20">
 		<div class="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-40">
 			<img class="h-11" src={logo} alt="Your Company" />
-			
+
 			<h1 class="mt-5 text-4xl font-bold tracking-tight text-white sm:text-6xl">
 				We <span class="gradient-text">{displayText}</span> the future of drones
 			</h1>
 			<p class="mt-6 text-lg leading-8 text-gray-300">
-				We are UAS@UCLA, the premier undergraduate aerial robotics team at UCLA. Our student-run team designs, manufactures, and tests cutting-edge drone hardware and software.
-
+				We are UAS@UCLA, the premier undergraduate aerial robotics team at UCLA. Our student-run
+				team designs, manufactures, and tests cutting-edge drone hardware and software.
 			</p>
 			<div class="mt-10 flex items-center gap-x-6">
 				<a
@@ -111,7 +113,7 @@
 			</div>
 		</div>
 		<div
-			class="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32"
+			class="mx-auto flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32"
 		>
 			<div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
 				<img
