@@ -51,7 +51,7 @@
 </script>
 
 <div class="relative isolate overflow-hidden bg-gray-900">
-    <Nav></Nav>
+	<Nav></Nav>
 	<svg
 		class="absolute inset-0 -z-10 h-full w-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
 		aria-hidden="true"
@@ -103,7 +103,7 @@
 			</p>
 			<div class="mt-10 flex items-center gap-x-6">
 				<a
-					href="#"
+					href="./#contact"
 					class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
 					>Get involved</a
 				>
