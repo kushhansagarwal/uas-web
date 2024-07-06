@@ -43,7 +43,9 @@
 				</div>
 				<h2 class="text-3xl font-bold tracking-tight text-white">Get involved</h2>
 				<p class="mt-6 text-lg leading-8 text-gray-300">
-					Join UAS@UCLA to gain hands-on experience in drone technology. Participate in technical workshops, industry networking events, and research projects. No prior experience is required—just a passion for innovation.
+					Join UAS@UCLA to gain hands-on experience in drone technology. Participate in technical
+					workshops, industry networking events, and research projects. No prior experience is
+					required—just a passion for innovation.
 				</p>
 				<dl class="mt-10 space-y-4 text-base leading-7 text-gray-300">
 					<div class="flex gap-x-4">
@@ -92,7 +94,7 @@
 				</dl>
 			</div>
 		</div>
-		<form action="#" method="POST" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+		<form method="POST" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
 			<div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
 				<div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
 					<div class="sm:col-span-2">
@@ -172,7 +174,7 @@
 								<div class="flex items-center">
 									<input
 										type="checkbox"
-										name="hear-about"
+										name="research-project"
 										id="solar-plane"
 										value="solar-plane"
 										class="mr-2"
@@ -182,7 +184,7 @@
 								<div class="flex items-center">
 									<input
 										type="checkbox"
-										name="hear-about"
+										name="research-project"
 										id="3d-mapping"
 										value="3d-mapping"
 										class="mr-2"
@@ -192,7 +194,7 @@
 								<div class="flex items-center">
 									<input
 										type="checkbox"
-										name="hear-about"
+										name="research-project"
 										id="drone-delivery"
 										value="drone-delivery"
 										class="mr-2"
