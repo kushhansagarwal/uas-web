@@ -8,7 +8,7 @@
 		aria-hidden="true"
 	>
 		<div
-			class="aspect-[1108/632] w-[69.25rem] bg-gradient-to-r from-[#80caff] to-[#4f46e5] opacity-20 hidden lg:block"
+			class="hidden aspect-[1108/632] w-[69.25rem] bg-gradient-to-r from-[#80caff] to-[#4f46e5] opacity-20 lg:block"
 			style="clip-path: polygon(80.2% 40.1%, 90.3% 20.5%, 95.7% 50.2%, 85.4% 70.3%, 70.1% 80.5%, 60.2% 60.4%, 50.3% 40.2%, 40.4% 50.3%, 30.5% 60.4%, 20.6% 70.5%, 10.7% 80.6%, 5.8% 90.7%, 15.9% 100%, 25.1% 90.9%, 35.2% 80.8%, 45.3% 70.7%)"
 		></div>
 	</div>
@@ -19,7 +19,8 @@
 				Building drone technology for tomorrow
 			</p>
 			<p class="mt-6 text-lg leading-8 text-gray-300">
-				UAS@UCLA is at the forefront of drone innovation, dedicated to advancing aerial robotics through cutting-edge research and practical applications
+				UAS@UCLA is at the forefront of drone innovation, dedicated to advancing aerial robotics
+				through cutting-edge research and practical applications
 			</p>
 		</div>
 		<div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -40,11 +41,12 @@
 						</svg>
 						Build autonomous drones
 					</dt>
-					<dd class="text-gray-3000 mt-4 flex flex-auto flex-col text-base leading-7">
+					<dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-300">
 						<p class="flex-auto">
-							At UAS@UCLA, our primary focus is on the design and development of cutting-edge autonomous drones. Through rigorous testing and innovative engineering, we strive to push the boundaries of drone technology and autonomy.
+							At UAS@UCLA, our primary focus is on the design and development of cutting-edge
+							autonomous drones. Through rigorous testing and innovative engineering, we strive to
+							push the boundaries of drone technology and autonomy.
 						</p>
-						
 					</dd>
 				</div>
 				<div class="flex flex-col">
@@ -65,9 +67,10 @@
 					</dt>
 					<dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-300">
 						<p class="flex-auto">
-							We offer a range of technical workshops to equip our team members with the skills needed to excel in aerial robotics. These workshops cover various aspects of drone technology, from basic principles to advanced engineering techniques.
+							We offer a range of technical workshops to equip our team members with the skills
+							needed to excel in aerial robotics. These workshops cover various aspects of drone
+							technology, from basic principles to advanced engineering techniques.
 						</p>
-						
 					</dd>
 				</div>
 				<div class="flex flex-col">
@@ -88,9 +91,11 @@
 					</dt>
 					<dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-300">
 						<p class="flex-auto">
-							Networking with industry professionals is a key component of our mission. We provide opportunities for our members to connect with experts, gain insights into the latest industry trends, and foster relationships that can lead to future career opportunities.
+							Networking with industry professionals is a key component of our mission. We provide
+							opportunities for our members to connect with experts, gain insights into the latest
+							industry trends, and foster relationships that can lead to future career
+							opportunities.
 						</p>
-						
 					</dd>
 				</div>
 			</dl>
