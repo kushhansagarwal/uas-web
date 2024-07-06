@@ -19,8 +19,7 @@
 				Building drone technology for tomorrow
 			</p>
 			<p class="mt-6 text-lg leading-8 text-gray-300">
-				Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a
-				elementum pulvinar et feugiat blandit at. In mi viverra elit nunc.
+				UAS@UCLA is at the forefront of drone innovation, dedicated to advancing aerial robotics through cutting-edge research and practical applications
 			</p>
 		</div>
 		<div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -43,15 +42,9 @@
 					</dt>
 					<dd class="text-gray-3000 mt-4 flex flex-auto flex-col text-base leading-7">
 						<p class="flex-auto">
-							Commodo nec sagittis tortor mauris sed. Turpis tortor quis scelerisque diam id
-							accumsan nullam tempus. Pulvinar etiam lacus volutpat eu. Phasellus praesent ligula
-							sit faucibus.
+							At UAS@UCLA, our primary focus is on the design and development of cutting-edge autonomous drones. Through rigorous testing and innovative engineering, we strive to push the boundaries of drone technology and autonomy.
 						</p>
-						<p class="mt-6">
-							<a href="#" class="text-sm font-semibold leading-6 text-indigo-400"
-								>Learn more <span aria-hidden="true">→</span></a
-							>
-						</p>
+						
 					</dd>
 				</div>
 				<div class="flex flex-col">
@@ -72,14 +65,9 @@
 					</dt>
 					<dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-300">
 						<p class="flex-auto">
-							Pellentesque enim a commodo malesuada turpis eleifend risus. Facilisis donec placerat
-							sapien consequat tempor fermentum nibh.
+							We offer a range of technical workshops to equip our team members with the skills needed to excel in aerial robotics. These workshops cover various aspects of drone technology, from basic principles to advanced engineering techniques.
 						</p>
-						<p class="mt-6">
-							<a href="#" class="text-sm font-semibold leading-6 text-indigo-400"
-								>Learn more <span aria-hidden="true">→</span></a
-							>
-						</p>
+						
 					</dd>
 				</div>
 				<div class="flex flex-col">
@@ -100,14 +88,9 @@
 					</dt>
 					<dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-300">
 						<p class="flex-auto">
-							Pellentesque sit elit congue ante nec amet. Dolor aenean curabitur viverra suspendisse
-							iaculis eget. Nec mollis placerat ultricies euismod ut condimentum.
+							Networking with industry professionals is a key component of our mission. We provide opportunities for our members to connect with experts, gain insights into the latest industry trends, and foster relationships that can lead to future career opportunities.
 						</p>
-						<p class="mt-6">
-							<a href="#" class="text-sm font-semibold leading-6 text-indigo-400"
-								>Learn more <span aria-hidden="true">→</span></a
-							>
-						</p>
+						
 					</dd>
 				</div>
 			</dl>

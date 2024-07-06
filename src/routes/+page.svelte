@@ -15,6 +15,7 @@
 
 <Hero></Hero>
 <Sec1></Sec1>
+<Sec2></Sec2>
 <Sec3></Sec3>
 <Team></Team>
 <!-- <Sponsor></Sponsor> -->

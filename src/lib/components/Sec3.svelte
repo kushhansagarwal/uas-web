@@ -33,11 +33,10 @@
 										clip-rule="evenodd"
 									/>
 								</svg>
-								25kgs capacity
+								5kgs capacity
 							</dt>
 							<dd class="inline">
-								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit
-								perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+								Our drone is designed to carry a variety of payloads, including sensors for object detection and air drop mechanisms, with a capacity of up to 5 kilograms
 							</dd>
 						</div>
 						<div class="relative pl-9">
@@ -57,8 +56,7 @@
 								10km range
 							</dt>
 							<dd class="inline">
-								Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat
-								commodo.
+								With a flight range of 10 kilometers, our drone is equipped to cover significant distances, suitable for diverse mission scenarios, including precise waypoint navigation and search operations
 							</dd>
 						</div>
 						<div class="relative pl-9">
@@ -81,8 +79,7 @@
 								80 km/h  speed
 							</dt>
 							<dd class="inline">
-								Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi
-								lobortis.
+								The drone can achieve speeds of up to 50 kilometers per hour, allowing it to efficiently complete its mission tasks and quickly return to base
 							</dd>
 						</div>
 					</dl>

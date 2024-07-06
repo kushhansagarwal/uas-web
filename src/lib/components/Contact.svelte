@@ -43,8 +43,7 @@
 				</div>
 				<h2 class="text-3xl font-bold tracking-tight text-white">Get involved</h2>
 				<p class="mt-6 text-lg leading-8 text-gray-300">
-					Proin volutpat consequat porttitor cras nullam gravida at. Orci molestie a eu arcu. Sed ut
-					tincidunt integer elementum id sem. Arcu sed malesuada et magna.
+					Join UAS@UCLA to gain hands-on experience in drone technology. Participate in technical workshops, industry networking events, and research projects. No prior experience is required—just a passion for innovation.
 				</p>
 				<dl class="mt-10 space-y-4 text-base leading-7 text-gray-300">
 					<div class="flex gap-x-4">

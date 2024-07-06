@@ -29,8 +29,7 @@
 		<div class="mx-auto max-w-2xl lg:mx-0">
 			<h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Our team</h2>
 			<p class="mt-6 text-lg leading-8 text-gray-300">
-				We’re a dynamic group of individuals who are passionate about what we do and dedicated to
-				delivering the best results for our clients.
+				Our team is composed of students from mechanical, aerospace, electrical, and computer engineering backgrounds. Each member brings unique skills and expertise, contributing to our collective goal of excellence in aerial robotics
 			</p>
 		</div>
 		<ul
