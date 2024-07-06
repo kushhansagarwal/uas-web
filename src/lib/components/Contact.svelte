@@ -98,7 +98,7 @@
 			<div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
 				<div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
 					<div class="sm:col-span-2">
-						<label for="name" class="block text-sm font-semibold leading-6 text-white">Name</label>
+						<label for="name" class="required block text-sm font-semibold leading-6 text-white">Name</label>
 						<div class="mt-2.5">
 							<input
 								type="text"
@@ -106,11 +106,26 @@
 								id="name"
 								autocomplete="name"
 								class="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+								required
 							/>
 						</div>
 					</div>
 					<div class="sm:col-span-2">
-						<label for="major" class="block text-sm font-semibold leading-6 text-white">Major</label
+						<label for="email" class="required block text-sm font-semibold leading-6 text-white">Email</label
+						>
+						<div class="mt-2.5">
+							<input
+								type="email"
+								name="email"
+								id="email"
+								autocomplete="email"
+								class="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+								required
+							/>
+						</div>
+					</div>
+					<div class="sm:col-span-2">
+						<label for="major" class="required block text-sm font-semibold leading-6 text-white">Major</label
 						>
 						<div class="mt-2.5">
 							<input
@@ -119,27 +134,57 @@
 								id="major"
 								autocomplete="major"
 								class="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+								required
 							/>
 						</div>
 					</div>
+
 					<div class="sm:col-span-2">
-						<label class="block text-sm font-semibold leading-6 text-white">Year</label>
+						<label class="required block text-sm font-semibold leading-6 text-white">Year</label>
 						<div class="mt-2.5">
 							<div class="flex items-center space-x-4">
 								<div class="flex items-center">
-									<input type="radio" name="year" id="freshman" value="freshman" class="mr-2" />
+									<input
+										type="radio"
+										name="year"
+										id="freshman"
+										value="freshman"
+										class="mr-2"
+										required
+									/>
 									<label for="freshman" class="text-white">Freshman</label>
 								</div>
 								<div class="flex items-center">
-									<input type="radio" name="year" id="sophomore" value="sophomore" class="mr-2" />
+									<input
+										type="radio"
+										name="year"
+										id="sophomore"
+										value="sophomore"
+										class="mr-2"
+										required
+									/>
 									<label for="sophomore" class="text-white">Sophomore</label>
 								</div>
 								<div class="flex items-center">
-									<input type="radio" name="year" id="junior" value="junior" class="mr-2" />
+									<input
+										type="radio"
+										name="year"
+										id="junior"
+										value="junior"
+										class="mr-2"
+										required
+									/>
 									<label for="junior" class="text-white">Junior</label>
 								</div>
 								<div class="flex items-center">
-									<input type="radio" name="year" id="senior" value="senior" class="mr-2" />
+									<input
+										type="radio"
+										name="year"
+										id="senior"
+										value="senior"
+										class="mr-2"
+										required
+									/>
 									<label for="senior" class="text-white">Senior</label>
 								</div>
 							</div>
@@ -151,6 +196,7 @@
 										id="first-year-transfer"
 										value="first-year-transfer"
 										class="mr-2"
+										required
 									/>
 									<label for="first-year-transfer" class="text-white">1st Year Transfer</label>
 								</div>
@@ -161,6 +207,7 @@
 										id="second-year-transfer"
 										value="second-year-transfer"
 										class="mr-2"
+										required
 									/>
 									<label for="second-year-transfer" class="text-white">2nd Year Transfer</label>
 								</div>
@@ -168,7 +215,8 @@
 						</div>
 					</div>
 					<div class="sm:col-span-2">
-						<label class="block text-sm font-semibold leading-6 text-white">Research project</label>
+						<label class=" block text-sm font-semibold leading-6 text-white">Research project</label
+						>
 						<div class="mt-2.5">
 							<div class="flex items-center space-x-4">
 								<div class="flex items-center">
@@ -205,7 +253,7 @@
 						</div>
 					</div>
 					<div class="sm:col-span-2">
-						<label class="block text-sm font-semibold leading-6 text-white"
+						<label class="required block text-sm font-semibold leading-6 text-white"
 							>How did you hear about us?</label
 						>
 						<div class="mt-2.5">
@@ -217,6 +265,7 @@
 										id="campus-event"
 										value="campus-event"
 										class="mr-2"
+										required
 									/>
 									<label for="campus-event" class="text-white">Campus Event</label>
 								</div>
@@ -227,11 +276,19 @@
 										id="ucla-website"
 										value="ucla-website"
 										class="mr-2"
+										required
 									/>
 									<label for="ucla-website" class="text-white">UCLA Website</label>
 								</div>
 								<div class="flex items-center">
-									<input type="radio" name="hear-about" id="friends" value="friends" class="mr-2" />
+									<input
+										type="radio"
+										name="hear-about"
+										id="friends"
+										value="friends"
+										class="mr-2"
+										required
+									/>
 									<label for="friends" class="text-white">Friends</label>
 								</div>
 								<div class="flex items-center">
@@ -241,6 +298,7 @@
 										id="social-media"
 										value="social-media"
 										class="mr-2"
+										required
 									/>
 									<label for="social-media" class="text-white">Social Media</label>
 								</div>
@@ -253,15 +311,30 @@
 										id="aiaa-uas-meeting"
 										value="aiaa-uas-meeting"
 										class="mr-2"
+										required
 									/>
 									<label for="aiaa-uas-meeting" class="text-white">AIAA/UAS Meeting</label>
 								</div>
 								<div class="flex items-center">
-									<input type="radio" name="hear-about" id="discord" value="discord" class="mr-2" />
+									<input
+										type="radio"
+										name="hear-about"
+										id="discord"
+										value="discord"
+										class="mr-2"
+										required
+									/>
 									<label for="discord" class="text-white">Discord</label>
 								</div>
 								<div class="flex items-center">
-									<input type="radio" name="hear-about" id="other" value="other" class="mr-2" />
+									<input
+										type="radio"
+										name="hear-about"
+										id="other"
+										value="other"
+										class="mr-2"
+										required
+									/>
 									<label for="other" class="text-white">Other</label>
 								</div>
 							</div>
