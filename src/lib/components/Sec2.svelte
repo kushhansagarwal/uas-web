@@ -3,7 +3,7 @@
 		<div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
 			<p class="text-base font-semibold leading-7 text-indigo-400">Research projects</p>
 			<h1 class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-				A better workflow
+				Learn hands-on
 			</h1>
 			<div
 				class="mt-6 grid max-w-xl grid-cols-1 gap-8 text-base leading-7 text-gray-300 lg:max-w-none lg:grid-cols-2"
@@ -30,19 +30,19 @@
 				class="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 sm:mt-20 sm:grid-cols-2 sm:gap-y-16 lg:mt-28 lg:grid-cols-3"
 			>
 				<div class="flex flex-col-reverse gap-y-3 border-l border-white/20 pl-6">
-					<a href="#" class="text-sm font-semibold leading-6 text-indigo-400"
+					<a href="/research#solarplane" class="text-sm font-semibold leading-6 text-indigo-400"
 						>Learn more <span aria-hidden="true">→</span></a
 					>
 					<dd class="text-3xl font-semibold tracking-tight text-white">Solar Plane</dd>
 				</div>
 				<div class="flex flex-col-reverse gap-y-3 border-l border-white/20 pl-6">
-					<a href="#" class="text-sm font-semibold leading-6 text-indigo-400"
+					<a href="/research#3dmapping" class="text-sm font-semibold leading-6 text-indigo-400"
 						>Learn more <span aria-hidden="true">→</span></a
 					>
 					<dd class="text-3xl font-semibold tracking-tight text-white">3D Mapping</dd>
 				</div>
 				<div class="flex flex-col-reverse gap-y-3 border-l border-white/20 pl-6">
-					<a href="#" class="text-sm font-semibold leading-6 text-indigo-400"
+					<a href="/research#delivery" class="text-sm font-semibold leading-6 text-indigo-400"
 						>Learn more <span aria-hidden="true">→</span></a
 					>
 					<dd class="text-3xl font-semibold tracking-tight text-white">Drone Delivery</dd>

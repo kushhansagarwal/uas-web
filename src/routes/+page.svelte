@@ -29,5 +29,4 @@
 <Sec3></Sec3>
 <Team></Team>
 <!-- <Sponsor></Sponsor> -->
-<Newsletter></Newsletter>
 <Contact></Contact>

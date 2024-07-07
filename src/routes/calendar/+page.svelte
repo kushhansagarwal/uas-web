@@ -26,6 +26,7 @@
 
 	import type { PageData } from './$types';
 	import { goto } from '$app/navigation';
+	import Footer from '$lib/components/Footer.svelte';
 
 	export let data: PageData;
 	let image: string | null = null;

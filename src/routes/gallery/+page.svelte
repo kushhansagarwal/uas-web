@@ -50,6 +50,7 @@
 
 	import type { PageData } from '../gallery/$types';
 	import { goto } from '$app/navigation';
+	import Footer from '$lib/components/Footer.svelte';
 
 	export let data: PageData;
 	let image: string | null = null;
@@ -103,7 +104,7 @@
 				{#each images as image}
 					<div class="group relative">
 						<!-- <h1 class=" text-md text-gray-300">{image.title}</h1> -->
-						<img class="h-auto max-w-full rounded-md" src={image.url} alt={image.title} />
+						<img class="aspect-[4/3] w-full object-cover rounded-md" src={image.url} alt={image.title} />
 					</div>
 				{/each}
 			</div>

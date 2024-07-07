@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Footer from './../../lib/components/Footer.svelte';
 	import logo from '$lib/assets/logo.svg';
 	import bp4 from '$lib/assets/bp-4.svg';
 	import bp5 from '$lib/assets/bp-5.svg';
@@ -135,7 +136,7 @@
 		</div>
 	</div>
 </div>
-<div class="bg-gray-900 pb-24">
+<div id="solarplane" class="bg-gray-900 pb-24">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-5xl sm:text-center">
 			<h2 class="text-base font-semibold leading-7 text-indigo-400">
@@ -287,7 +288,7 @@
 	</div>
 </div>
 
-<div class="bg-gray-900 pb-24">
+<div id="3dmapping" class="bg-gray-900 pb-24">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-5xl sm:text-center">
 			<h2 class="text-base font-semibold leading-7 text-indigo-400">For Computer Science Majors</h2>
@@ -443,7 +444,7 @@
 	</div>
 </div>
 
-<div class="bg-gray-900 pb-24">
+<div id="delivery" class="bg-gray-900 pb-24">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-5xl sm:text-center">
 			<h2 class="text-base font-semibold leading-7 text-indigo-400">For All Majors</h2>
