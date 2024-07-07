@@ -1,49 +1,59 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Nav from '$lib/components/Nav.svelte';
+	import team1 from '$lib/assets/gallery/team1.jpg';
+	import team2 from '$lib/assets/gallery/team2.jpg';
+	import lab1 from '$lib/assets/gallery/lab1.jpg';
+	import lab2 from '$lib/assets/gallery/lab2.jpg';
+	import workshop1 from '$lib/assets/gallery/workshop1.jpg';
+	import veritasium from '$lib/assets/gallery/veritasium.jpg';
+	import aviata from '$lib/assets/gallery/aviata.jpg';
+	import spinny from '$lib/assets/gallery/spinny.jpg';
+	import flyday1 from '$lib/assets/gallery/flyday1.jpg';
+	import flyday2 from '$lib/assets/gallery/flyday2.jpeg';
 
 	let images: {
 		url: string;
 		title: string;
 	}[] = [
 		{
-			url: '/src/lib/assets/gallery/team1.jpg',
+			url: team1,
 			title: '2024-25 Board'
 		},
 		{
-			url: '/src/lib/assets/gallery/team2.jpg',
+			url: team2,
 			title: 'Flagship Drone'
 		},
 		{
-			url: '/src/lib/assets/gallery/lab1.jpg',
+			url: lab1,
 			title: 'Assembly'
 		},
 		{
-			url: '/src/lib/assets/gallery/lab2.jpg',
+			url: lab2,
 			title: '2024-25 Board'
 		},
 		{
-			url: '/src/lib/assets/gallery/workshop1.JPG',
+			url: workshop1,
 			title: '2024-25 Board'
 		},
 		{
-			url: '/src/lib/assets/gallery/veritasium.jpg',
+			url: veritasium,
 			title: '2024-25 Board'
 		},
 		{
-			url: '/src/lib/assets/gallery/aviata.jpg',
+			url: aviata,
 			title: '2024-25 Board'
 		},
 		{
-			url: '/src/lib/assets/gallery/spinny.jpg',
+			url: spinny,
 			title: '2024-25 Board'
 		},
 		{
-			url: '/src/lib/assets/gallery/flyday1.JPG',
+			url: flyday1,
 			title: '2024-25 Board'
 		},
 		{
-			url: '/src/lib/assets/gallery/flyday2.jpeg',
+			url: flyday2,
 			title: '2024-25 Board'
 		}
 	];
