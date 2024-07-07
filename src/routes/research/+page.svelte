@@ -58,9 +58,7 @@
 	onMount(() => {
 		typeWriterEffect();
 
-		if (!data.isAuthenticated) {
-			goto('/api/auth/login');
-		} else {
+		if (data.isAuthenticated) {
 			image = data.user.picture;
 		}
 	});

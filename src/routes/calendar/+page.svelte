@@ -32,9 +32,7 @@
 	let image: string | null = null;
 
 	onMount(() => {
-		if (!data.isAuthenticated) {
-			goto('/api/auth/login');
-		} else {
+		if (data.isAuthenticated) {
 			image = data.user.picture;
 		}
 	});

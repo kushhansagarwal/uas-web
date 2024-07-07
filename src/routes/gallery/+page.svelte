@@ -66,9 +66,7 @@
 	let image: string | null = null;
 
 	onMount(() => {
-		if (!data.isAuthenticated) {
-			goto('/api/auth/login');
-		} else {
+		if (data.isAuthenticated) {
 			image = data.user.picture;
 		}
 	});
@@ -114,7 +112,11 @@
 				{#each images as image}
 					<div class="group relative">
 						<!-- <h1 class=" text-md text-gray-300">{image.title}</h1> -->
-						<img class="aspect-[4/3] w-full object-cover rounded-md" src={image.url} alt={image.title} />
+						<img
+							class="aspect-[4/3] w-full rounded-md object-cover"
+							src={image.url}
+							alt={image.title}
+						/>
 					</div>
 				{/each}
 			</div>
