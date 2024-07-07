@@ -27,7 +27,7 @@
 </script>
 
 <nav class="z-10 bg-opacity-0">
-	<div class="mx-auto max-w-7xl px-2 sm:px-10">
+	<div class="mx-auto max-w-7xl px-5 pt-2 sm:px-10">
 		<div class="relative flex h-16 items-center justify-between">
 			<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
 				<!-- Mobile menu button-->

@@ -69,7 +69,7 @@
 			fill="url(#983e3e4c-de6d-4c3f-8d64-b9761d1534cc)"
 		/>
 	</svg>
-	<div class="mx-auto mt-10 max-w-7xl px-10 md:flex md:items-center md:justify-between lg:px-8">
+	<div class="mx-auto mt-10 max-w-7xl px-5 md:flex md:items-center md:justify-between lg:px-8">
 		<div class="min-w-0 flex-1">
 			<h2 class="text-2xl font-bold leading-7 text-white sm:truncate sm:text-3xl sm:tracking-tight">
 				Calendar
