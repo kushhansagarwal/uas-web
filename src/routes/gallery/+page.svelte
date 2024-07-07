@@ -1,16 +1,16 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Nav from '$lib/components/Nav.svelte';
-	import team1 from 'https://ik.imagekit.io/uas/team1.jpg';
-	import team2 from 'https://ik.imagekit.io/uas/team2.jpg';
-	import lab1 from 'https://ik.imagekit.io/uas/lab1.jpg';
-	import lab2 from 'https://ik.imagekit.io/uas/lab2.jpg';
-	import workshop1 from 'https://ik.imagekit.io/uas/workshop1.jpg';
-	import veritasium from 'https://ik.imagekit.io/uas/veritasium.jpg';
-	import aviata from 'https://ik.imagekit.io/uas/aviata.jpg';
-	import spinny from 'https://ik.imagekit.io/uas/spinny.jpg';
-	import flyday1 from 'https://ik.imagekit.io/uas/flyday1.jpg';
-	import flyday2 from 'https://ik.imagekit.io/uas/flyday2.jpeg';
+	const team1 = 'https://ik.imagekit.io/uas/team1.jpg';
+	const team2 = 'https://ik.imagekit.io/uas/team2.jpg';
+	const lab1 = 'https://ik.imagekit.io/uas/lab1.jpg';
+	const lab2 = 'https://ik.imagekit.io/uas/lab2.jpg';
+	const workshop1 = 'https://ik.imagekit.io/uas/workshop1.jpg';
+	const veritasium = 'https://ik.imagekit.io/uas/veritasium.jpg';
+	const aviata = 'https://ik.imagekit.io/uas/aviata.jpg';
+	const spinny = 'https://ik.imagekit.io/uas/spinny.jpg';
+	const flyday1 = 'https://ik.imagekit.io/uas/flyday1.jpg';
+	const flyday2 = 'https://ik.imagekit.io/uas/flyday2.jpeg';
 
 	let images: {
 		url: string;
