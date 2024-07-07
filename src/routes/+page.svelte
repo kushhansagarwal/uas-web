@@ -10,19 +10,20 @@
 	import Newsletter from '$lib/components/Newsletter.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 
-	let state = true;
-	let profile_state = false;
+	let authenticated = false;
+	let image: string | null = null;
 
 	export let data;
 
 	onMount(() => {
-		if (!data.isAuthenticated) {
-			goto('/api/auth/login');
+		if (data.isAuthenticated) {
+			authenticated = true;
+			image = data.user.picture;
 		}
 	});
 </script>
 
-<Hero image={data.user.picture}></Hero>
+<Hero {image}></Hero>
 <Sec1></Sec1>
 <Sec2></Sec2>
 <Sec3></Sec3>

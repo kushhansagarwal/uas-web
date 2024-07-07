@@ -9,7 +9,7 @@
 	let changingText = words[currentWordIndex];
 	let displayText = '';
 
-	export let image: string = '';
+	export let image: string | null = null;
 
 	function typeWriterEffect() {
 		let typingSpeed = 80; // milliseconds
@@ -53,7 +53,7 @@
 </script>
 
 <div class="relative isolate overflow-hidden bg-gray-900">
-	<Nav image={image}></Nav>
+	<Nav image={image} active="home"></Nav>
 	<svg
 		class="absolute inset-0 -z-10 h-full w-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
 		aria-hidden="true"
