@@ -1,16 +1,16 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Nav from '$lib/components/Nav.svelte';
-	import team1 from '$lib/assets/gallery/team1.jpg';
-	import team2 from '$lib/assets/gallery/team2.jpg';
-	import lab1 from '$lib/assets/gallery/lab1.jpg';
-	import lab2 from '$lib/assets/gallery/lab2.jpg';
-	import workshop1 from '$lib/assets/gallery/workshop1.jpg';
-	import veritasium from '$lib/assets/gallery/veritasium.jpg';
-	import aviata from '$lib/assets/gallery/aviata.jpg';
-	import spinny from '$lib/assets/gallery/spinny.jpg';
-	import flyday1 from '$lib/assets/gallery/flyday1.jpg';
-	import flyday2 from '$lib/assets/gallery/flyday2.jpeg';
+	import team1 from 'https://ik.imagekit.io/uas/team1.jpg';
+	import team2 from 'https://ik.imagekit.io/uas/team2.jpg';
+	import lab1 from 'https://ik.imagekit.io/uas/lab1.jpg';
+	import lab2 from 'https://ik.imagekit.io/uas/lab2.jpg';
+	import workshop1 from 'https://ik.imagekit.io/uas/workshop1.jpg';
+	import veritasium from 'https://ik.imagekit.io/uas/veritasium.jpg';
+	import aviata from 'https://ik.imagekit.io/uas/aviata.jpg';
+	import spinny from 'https://ik.imagekit.io/uas/spinny.jpg';
+	import flyday1 from 'https://ik.imagekit.io/uas/flyday1.jpg';
+	import flyday2 from 'https://ik.imagekit.io/uas/flyday2.jpeg';
 
 	let images: {
 		url: string;
