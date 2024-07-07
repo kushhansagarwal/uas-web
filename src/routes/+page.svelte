@@ -23,6 +23,8 @@
 	});
 </script>
 
+
+
 <Hero {image}></Hero>
 <Sec1></Sec1>
 <Sec2></Sec2>

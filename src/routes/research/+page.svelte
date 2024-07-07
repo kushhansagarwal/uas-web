@@ -64,6 +64,7 @@
 	});
 </script>
 
+
 <div class="relative isolate overflow-hidden bg-gray-900">
 	<Nav {image} active="research"></Nav>
 	<svg

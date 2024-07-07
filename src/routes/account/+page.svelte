@@ -17,6 +17,8 @@
 	});
 </script>
 
+
+
 <Nav {image}></Nav>
 <section class="mx-auto min-h-screen max-w-7xl">
 	<div class="mt-10 px-5 md:flex md:items-center md:justify-between lg:px-8">

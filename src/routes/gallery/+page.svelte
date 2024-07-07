@@ -72,6 +72,7 @@
 	});
 </script>
 
+
 <div class="relative isolate min-h-screen overflow-hidden bg-gray-900">
 	<Nav {image} active="calendar"></Nav>
 	<svg
