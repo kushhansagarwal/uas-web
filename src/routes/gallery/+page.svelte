@@ -108,7 +108,7 @@
 			<h2 class="text-2xl font-bold leading-7 text-white sm:truncate sm:text-3xl sm:tracking-tight">
 				Gallery
 			</h2>
-			<div class="mt-5 grid grid-cols-2 gap-4 md:grid-cols-3">
+			<div class="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
 				{#each images as image}
 					<div class="group relative">
 						<!-- <h1 class=" text-md text-gray-300">{image.title}</h1> -->

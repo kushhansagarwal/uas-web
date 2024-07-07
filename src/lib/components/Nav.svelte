@@ -76,9 +76,6 @@
 				</button>
 			</div>
 			<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-				<div class="flex flex-shrink-0 items-center">
-					<img class="h-8 w-auto" src={logo} alt="Your Company" />
-				</div>
 				<div class="hidden sm:ml-6 sm:block">
 					<div class="flex space-x-4">
 						<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
@@ -191,23 +188,32 @@
 				<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
 				<a
 					href="/"
-					class={"block rounded-md px-3 py-2 text-base font-medium " + (active === "home" ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white")}
+					class={'block rounded-md px-3 py-2 text-base font-medium ' +
+						(active === 'home'
+							? 'bg-gray-900 text-white'
+							: 'text-gray-300 hover:bg-gray-700 hover:text-white')}
 					aria-current="page">Home</a
 				>
 				<a
 					href="/research"
-					class={"block rounded-md px-3 py-2 text-base font-medium " + (active === "research" ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white")}
-					>Research</a
+					class={'block rounded-md px-3 py-2 text-base font-medium ' +
+						(active === 'research'
+							? 'bg-gray-900 text-white'
+							: 'text-gray-300 hover:bg-gray-700 hover:text-white')}>Research</a
 				>
 				<a
 					href="/calendar"
-					class={"block rounded-md px-3 py-2 text-base font-medium " + (active === "calendar" ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white")}
-					>Calendar</a
+					class={'block rounded-md px-3 py-2 text-base font-medium ' +
+						(active === 'calendar'
+							? 'bg-gray-900 text-white'
+							: 'text-gray-300 hover:bg-gray-700 hover:text-white')}>Calendar</a
 				>
 				<a
 					href="/gallery"
-					class={"block rounded-md px-3 py-2 text-base font-medium " + (active === "gallery" ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white")}
-					>Gallery</a
+					class={'block rounded-md px-3 py-2 text-base font-medium ' +
+						(active === 'gallery'
+							? 'bg-gray-900 text-white'
+							: 'text-gray-300 hover:bg-gray-700 hover:text-white')}>Gallery</a
 				>
 			</div>
 		</div>
