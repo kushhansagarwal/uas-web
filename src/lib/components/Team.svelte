@@ -1,14 +1,14 @@
 <script lang="ts">
-	import john from '$lib/assets/team/john.jpg';
-	import kush from '$lib/assets/team/kush.jpg';
-	import nathan from '$lib/assets/team/nathan.jpg';
-	import steven from '$lib/assets/team/steven.jpg';
-	import aiden from '$lib/assets/team/aiden.jpg';
-	import kevin from '$lib/assets/team/kevin.jpg';
-	import samuel from '$lib/assets/team/samuel.jpg';
-	import aniket from '$lib/assets/team/aniket.jpg';
-	import sean from '$lib/assets/team/sean.jpg';
-	import edgar from '$lib/assets/team/edgar.jpg';
+	const john = 'https://ik.imagekit.io/uas/team/john.jpg';
+	const kush = 'https://ik.imagekit.io/uas/team/kush.jpg';
+	const nathan = 'https://ik.imagekit.io/uas/team/nathan.jpg';
+	const steven = 'https://ik.imagekit.io/uas/team/steven.jpg';
+	const aiden = 'https://ik.imagekit.io/uas/team/aiden.jpg';
+	const kevin = 'https://ik.imagekit.io/uas/team/kevin.jpg';
+	const samuel = 'https://ik.imagekit.io/uas/team/samuel.jpg';
+	const aniket = 'https://ik.imagekit.io/uas/team/aniket.jpg';
+	const sean = 'https://ik.imagekit.io/uas/team/sean.jpg';
+	const edgar = 'https://ik.imagekit.io/uas/team/edgar.jpg';
 
 	let team = [
 		{ name: 'Kush Agarwal', img: kush, role: 'President', notes: 'Aerospace Engineering' },
