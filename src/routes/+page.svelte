@@ -9,6 +9,7 @@
 	import Sponsor from '$lib/components/Sponsor.svelte';
 	import Newsletter from '$lib/components/Newsletter.svelte';
 	import Contact from '$lib/components/Contact.svelte';
+	import InlineGallery from '$lib/components/InlineGallery.svelte';
 
 	let authenticated = false;
 	let image: string | null = null;
@@ -26,6 +27,7 @@
 
 
 <Hero {image}></Hero>
+<InlineGallery></InlineGallery>
 <Sec1></Sec1>
 <Sec2></Sec2>
 <Sec3></Sec3>

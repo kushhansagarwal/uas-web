@@ -6,12 +6,7 @@
 	<div
 		class="absolute left-[calc(50%-4rem)] top-10 -z-10 transform-gpu blur-3xl sm:left-[calc(50%-18rem)] lg:left-48 lg:top-[calc(50%-30rem)] xl:left-[calc(50%-24rem)]"
 		aria-hidden="true"
-	>
-		<div
-			class="hidden aspect-[1108/632] w-[69.25rem] bg-gradient-to-r from-[#80caff] to-[#4f46e5] opacity-20 lg:block"
-			style="clip-path: polygon(80.2% 40.1%, 90.3% 20.5%, 95.7% 50.2%, 85.4% 70.3%, 70.1% 80.5%, 60.2% 60.4%, 50.3% 40.2%, 40.4% 50.3%, 30.5% 60.4%, 20.6% 70.5%, 10.7% 80.6%, 5.8% 90.7%, 15.9% 100%, 25.1% 90.9%, 35.2% 80.8%, 45.3% 70.7%)"
-		></div>
-	</div>
+	></div>
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl lg:text-center">
 			<h2 class="text-base font-semibold leading-7 text-indigo-400">About us</h2>
