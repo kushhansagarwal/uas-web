@@ -1,5 +1,5 @@
 <div class="mx-auto max-w-12xl">
-	<div class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4">
+	<div class="p-2 md:p-0 grid grid-cols-1 sm:gap-2 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4">
 		<img
 			src="https://ik.imagekit.io/uas/veritasium.jpg"
 			alt=""
@@ -18,23 +18,23 @@
 		<img
 			src="https://ik.imagekit.io/uas/aviata.jpg"
 			alt=""
-			class="  w-full inline-gallery bg-gray-900/5 object-cover shadow-lg"
+			class="hidden md:block  w-full inline-gallery bg-gray-900/5 object-cover shadow-lg"
 		/>
 		<img
 			src="https://ik.imagekit.io/uas/spinny.jpg"
 			alt=""
-			class=" w-full inline-gallery bg-gray-900/5 object-cover shadow-lg"
+			class="hidden md:block w-full inline-gallery bg-gray-900/5 object-cover shadow-lg"
 		/>
 		<img
 			src="https://ik.imagekit.io/uas/flyday1.jpg"
 			alt=""
-			class=" w-full inline-gallery bg-gray-900/5 object-cover shadow-lg"
+			class="hidden md:block w-full inline-gallery bg-gray-900/5 object-cover shadow-lg"
 		/>
 
 		<img
 			src="https://ik.imagekit.io/uas/flyday2.jpeg"
 			alt=""
-			class=" w-full inline-gallery bg-gray-900/5 object-cover shadow-lg"
+			class="hidden md:block w-full inline-gallery bg-gray-900/5 object-cover shadow-lg"
 		/>
 		<img
 			src="https://ik.imagekit.io/uas/team2.jpg"
@@ -49,7 +49,7 @@
         <img
 			src="https://ik.imagekit.io/uas/team1.jpg"
 			alt=""
-			class="hidden 2xl:block w-full inline-gallery bg-gray-900/5 object-cover shadow-lg"
+			class="hidden sm:block md:hidden 2xl:block w-full inline-gallery bg-gray-900/5 object-cover shadow-lg"
 		/>
 	</div>
 </div>

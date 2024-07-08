@@ -98,7 +98,9 @@
 			<div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
 				<div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
 					<div class="sm:col-span-2">
-						<label for="name" class="required block text-sm font-semibold leading-6 text-white">Name</label>
+						<label for="name" class="required block text-sm font-semibold leading-6 text-white"
+							>Name</label
+						>
 						<div class="mt-2.5">
 							<input
 								type="text"
@@ -111,7 +113,8 @@
 						</div>
 					</div>
 					<div class="sm:col-span-2">
-						<label for="email" class="required block text-sm font-semibold leading-6 text-white">Email</label
+						<label for="email" class="required block text-sm font-semibold leading-6 text-white"
+							>Email</label
 						>
 						<div class="mt-2.5">
 							<input
@@ -125,7 +128,8 @@
 						</div>
 					</div>
 					<div class="sm:col-span-2">
-						<label for="major" class="required block text-sm font-semibold leading-6 text-white">Major</label
+						<label for="major" class="required block text-sm font-semibold leading-6 text-white"
+							>Major</label
 						>
 						<div class="mt-2.5">
 							<input
@@ -142,7 +146,7 @@
 					<div class="sm:col-span-2">
 						<label class="required block text-sm font-semibold leading-6 text-white">Year</label>
 						<div class="mt-2.5">
-							<div class="flex items-center space-x-4">
+							<div class="contact-options">
 								<div class="flex items-center">
 									<input
 										type="radio"
@@ -187,8 +191,6 @@
 									/>
 									<label for="senior" class="text-white">Senior</label>
 								</div>
-							</div>
-							<div class="mt-4 flex items-center space-x-4">
 								<div class="flex items-center">
 									<input
 										type="radio"
@@ -218,7 +220,7 @@
 						<label class=" block text-sm font-semibold leading-6 text-white">Research project</label
 						>
 						<div class="mt-2.5">
-							<div class="flex items-center space-x-4">
+							<div class="contact-options">
 								<div class="flex items-center">
 									<input
 										type="checkbox"
@@ -257,7 +259,7 @@
 							>How did you hear about us?</label
 						>
 						<div class="mt-2.5">
-							<div class="flex items-center space-x-4">
+							<div class="contact-options">
 								<div class="flex items-center">
 									<input
 										type="radio"
@@ -302,8 +304,7 @@
 									/>
 									<label for="social-media" class="text-white">Social Media</label>
 								</div>
-							</div>
-							<div class="mt-4 flex items-center space-x-4">
+							
 								<div class="flex items-center">
 									<input
 										type="radio"
