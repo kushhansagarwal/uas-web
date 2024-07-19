@@ -113,11 +113,8 @@
 				Engage in <span class="gradient-text">{displayText}</span> research
 			</h1>
 			<p class="mt-6 text-lg leading-8 text-gray-300">
-				At UAS@UCLA, our research projects are at the heart of our mission to advance drone
-				technology and provide unparalleled hands-on experience to our members. Our projects are
-				designed to foster innovation, practical applications, and interdisciplinary collaboration,
-				creating a dynamic environment where students can explore cutting-edge technology and its
-				real-world applications.
+				At UAS@UCLA, our research projects are at the heart of our mission to advance drone technology and provide unparalleled hands-on experience to our members. Our projects are designed to foster innovation, practical applications, and interdisciplinary collaboration, creating a dynamic environment where students can explore cutting-edge technology and its real-world applications.
+
 			</p>
 		</div>
 		<div

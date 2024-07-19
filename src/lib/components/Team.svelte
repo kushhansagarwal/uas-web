@@ -29,7 +29,8 @@
 		<div class="mx-auto max-w-2xl lg:mx-0">
 			<h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Our team</h2>
 			<p class="mt-6 text-lg leading-8 text-gray-300">
-				Our team is composed of students from mechanical, aerospace, electrical, and computer engineering backgrounds. Each member brings unique skills and expertise, contributing to our collective goal of excellence in aerial robotics
+				We are UAS@UCLA, an undergraduate aerial robotics team at UCLA. Our student-driven team excels in designing, manufacturing, and testing state-of-the-art drone hardware and software. By tackling ambitious challenges—from competing in competitions to conducting research—we continuously push the boundaries of UAV technology. Our team is composed of students from various engineering backgrounds, each bringing unique skills and expertise to our collective goal of excellence in aerial robotics. As dedicated undergraduates, we are committed to growing our professional organization, providing students with hands-on experience in UAVs, and fostering valuable career skills.
+
 			</p>
 		</div>
 		<ul

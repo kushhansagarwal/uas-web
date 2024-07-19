@@ -2,34 +2,14 @@
 	import { onMount } from 'svelte';
 	import Nav from '$lib/components/Nav.svelte';
 
-	let events: {
-		title: string;
-		id: string;
-		description: string;
-		date: string;
-		location: string;
-		image: string;
-		rsvp: boolean;
-	}[] = [
-		{
-			title: 'AIAA Drone Building',
-			id: '1',
-			description:
-				'We would be building a drone for the AIAA competition. There are 3 teams competing and we need to decide which one we want to take home.',
-			date: 'January 30, 2025',
-			location: 'Boelter Hall',
-			image:
-				'https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHJvbmVzfGVufDB8fDB8fHww',
-			rsvp: true
-		}
-	];
-
+	
 	import type { PageData } from './$types';
 	import { goto } from '$app/navigation';
 	import Footer from '$lib/components/Footer.svelte';
-
+	
 	export let data: PageData;
 	let image: string | null = null;
+	const events = data.events;
 
 	onMount(() => {
 		if (data.isAuthenticated) {
@@ -84,7 +64,7 @@
 			</h3>
 			<ul
 				role="list"
-				class="mx-auto mt-5 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+				class="mx-auto my-5 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
 			>
 				{#each events as eventItem}
 					<li>
@@ -104,7 +84,7 @@
 							<div class="mt-5">
 								<a
 									href="/api/auth/login"
-									class="rounded-md bg-indigo-500 px-3.5 py-2.5 pt-5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+									class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
 									>RSVP <span aria-hidden="true">→</span></a
 								>
 							</div>
