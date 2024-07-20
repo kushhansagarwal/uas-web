@@ -26,7 +26,7 @@
 	let accessCode: string | null = null;
 	$: accessCode = accessCode ? accessCode.toLocaleUpperCase() : null;
 
-	const simulate = true;
+	const simulate = false;
 
 	let searchFiles = '';
 
