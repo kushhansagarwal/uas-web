@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Nav from '$lib/components/Nav.svelte';
 	export const ssr = false;
+	import moment from 'moment';
 
 	import type { PageData } from './$types';
 	import { onMount } from 'svelte';
@@ -51,7 +52,7 @@
 						familyName: 'HANSKUMAR AGARWAL',
 						level: 'General Member',
 						privileges: 'None',
-						created: '1721470614667'
+						created: '1689577112000'
 					},
 					files: [
 						[
@@ -121,7 +122,26 @@
 						</div>
 						<div class="mt-5">
 							<p class="font-bold">Date Joined</p>
-							<p class="text-gray-400">{filesPromiseData.userData.created}</p>
+							<p class="text-gray-400">
+								{moment(parseInt(filesPromiseData.userData.created)).format('DD MMMM, YYYY')}
+							</p>
+							<p class="text-xs text-gray-600">
+								{(() => {
+									const duration = moment.duration(
+										moment().diff(moment(parseInt(filesPromiseData.userData.created)))
+									);
+									const years = duration.years();
+									const months = duration.months();
+									const days = duration.days();
+									console.log(years, months, days);
+
+									const parts = [];
+									if (years > 0) parts.push(`${years} year${years > 1 ? 's' : ''}`);
+									if (months > 0) parts.push(`${months} month${months > 1 ? 's' : ''}`);
+									if (days > 0) parts.push(`${days} day${days > 1 ? 's' : ''}`);
+									return parts.length > 0 ? `${parts.join(', ')} ago` : 'Welcome!';
+								})()}
+							</p>
 						</div>
 						<div class="mt-5">
 							<p class="font-bold">Level</p>
@@ -129,7 +149,7 @@
 						</div>
 						{#if filesPromiseData.userData.privileges !== 'None'}
 							<div class="mt-5">
-								<p class="font-bold">Privileges:</p>
+								<p class="font-bold">Privileges</p>
 								<p class="text-gray-400">{filesPromiseData.userData.privileges}</p>
 							</div>
 						{/if}
