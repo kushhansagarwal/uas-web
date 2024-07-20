@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Nav from '$lib/components/Nav.svelte';
+	export const ssr = false;
 
 	import type { PageData } from './$types';
 	import { onMount } from 'svelte';
