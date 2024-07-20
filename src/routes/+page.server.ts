@@ -1,5 +1,5 @@
 import { google } from 'googleapis';
-import { SHEETS_API, EMAIL } from '$env/static/private';
+import { GOOGLE_SHEETS_API, EMAIL } from '$env/static/private';
 
 /** @type {import('./$types').Actions} */
 export const actions = {
@@ -24,7 +24,7 @@ export const actions = {
 		}
 
 		const auth = new google.auth.GoogleAuth({
-			credentials: JSON.parse(SHEETS_API),
+			credentials: JSON.parse(GOOGLE_SHEETS_API),
 			scopes: ['https://www.googleapis.com/auth/spreadsheets']
 		});
 
@@ -54,7 +54,7 @@ export const actions = {
 		const values = [];
 
 		const auth = new google.auth.GoogleAuth({
-			credentials: JSON.parse(SHEETS_API),
+			credentials: JSON.parse(GOOGLE_SHEETS_API),
 			scopes: ['https://www.googleapis.com/auth/spreadsheets']
 		});
 
