@@ -1,10 +1,20 @@
+import { GOOGLE_SHEETS_API } from '$env/static/private';
 import type { PageServerLoad } from './$types';
 import { google } from 'googleapis';
-import { SHEETS_API } from '$env/static/private';
+
 
 export const load = (async () => {
+	let credentials;
+	try {
+		credentials = JSON.parse(GOOGLE_SHEETS_API);
+		
+	} catch (error) {
+		console.error('Error parsing SHEETS_API:', error);
+		return { events: [] };
+	}
+
 	const auth = new google.auth.GoogleAuth({
-		credentials: JSON.parse(SHEETS_API),
+		credentials,
 		scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly']
 	});
 
@@ -29,8 +39,6 @@ export const load = (async () => {
 			image: row[5],
 			rsvp: row[6] === 'TRUE'
 		}));
-
-		console.log(events);
 
 		return { events };
 	} catch (error) {

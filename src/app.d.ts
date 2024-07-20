@@ -7,6 +7,16 @@ declare global {
 		// interface PageData {}
 		// interface PageState {}
 		// interface Platform {}
+		interface Locals {
+			isAuthenticated: boolean;
+			user: {
+				family_name: string;
+				given_name: string;
+				picture: string | null;
+				email: string;
+				id: string;
+			};
+		}
 	}
 }
 
