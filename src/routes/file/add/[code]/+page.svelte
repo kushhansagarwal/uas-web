@@ -31,4 +31,10 @@
 	});
 </script>
 
-<!-- Optionally, you can add some loading or error handling UI here -->
+<div class="flex flex-col items-center justify-center h-screen">
+
+    <div class="flex flex-col items-center justify-center">
+        <h1 class="text-2xl font-bold">Adding file...</h1>
+		<p class="text-gray-500">This may take a few seconds...</p>
+	</div>
+</div>
