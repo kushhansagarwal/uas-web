@@ -1,24 +1,88 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Nav from '$lib/components/Nav.svelte';
+	import moment from 'moment';
 
-	
 	import type { PageData } from './$types';
 	import { goto } from '$app/navigation';
 	import Footer from '$lib/components/Footer.svelte';
-	
+
 	export let data: PageData;
 	let image: string | null = null;
-	const events = data.events;
+	let events = data.events;
+
+	interface EventItem {
+		_id: string;
+		title: string;
+		date: string | null;
+		description: string;
+		location: string;
+		image: string;
+		rsvp: boolean;
+	}
+
+	let newEvent: Partial<EventItem> = {
+		title: '',
+		date: '',
+		description: '',
+		location: '',
+		image: '',
+		rsvp: false
+	};
+
+	let file: File | null = null;
+
+	async function addEvent() {
+		const formData = new FormData();
+		formData.append('title', newEvent.title || '');
+		formData.append('date', newEvent.date || '');
+		formData.append('description', newEvent.description || '');
+		formData.append('location', newEvent.location || '');
+		if (file) {
+			formData.append('image', file);
+		}
+		formData.append('rsvp', newEvent.rsvp ? 'true' : 'false');
+
+		const response = await fetch('/api/calendar/add', {
+			method: 'POST',
+			body: formData
+		});
+
+		if (response.ok) {
+			const addedEvent = await response.json();
+			// Adjusting the addedEvent structure to match the expected response type
+			const formattedEvent: EventItem = {
+				_id: addedEvent._id,
+				title: addedEvent.title,
+				date: addedEvent.date,
+				description: addedEvent.description,
+				location: addedEvent.location,
+				image: addedEvent.fileId,
+				rsvp: addedEvent.rsvp
+			};
+			events = [...events, formattedEvent];
+			newEvent = {
+				title: '',
+				date: '',
+				description: '',
+				location: '',
+				image: '',
+				rsvp: false
+			};
+			file = null;
+		} else {
+			console.error('Failed to add event');
+		}
+	}
 
 	onMount(() => {
-		if (data.isAuthenticated) {
+		if (!data.isAuthenticated) {
+			goto('/api/auth/login');
+		} else {
 			image = data.user.picture;
 		}
 	});
 </script>
-
-
 
 <div class="relative isolate min-h-screen overflow-hidden bg-gray-900">
 	<Nav {image} active="calendar"></Nav>
@@ -52,6 +116,8 @@
 		/>
 	</svg>
 	<div class="mx-auto mt-10 max-w-7xl px-5 md:flex md:items-center md:justify-between lg:px-8">
+
+
 		<div class="min-w-0 flex-1">
 			<h2 class="text-2xl font-bold leading-7 text-white sm:truncate sm:text-3xl sm:tracking-tight">
 				Calendar
@@ -92,6 +158,7 @@
 					</li>
 				{/each}
 			</ul>
+			
 		</div>
 	</div>
 </div>
