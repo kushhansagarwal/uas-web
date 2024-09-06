@@ -21,9 +21,17 @@
 }
 
 .inline-gallery {
-  @apply aspect-[3/2] sm:rounded-md md:rounded-none
+	@apply aspect-[3/2] sm:rounded-md md:rounded-none;
 }
 
 .contact-options {
-  @apply grid grid-cols-1 gap-2 xss:grid-cols-2 sm:grid-cols-3
+	@apply grid grid-cols-1 gap-2 xss:grid-cols-2 sm:grid-cols-3;
+}
+
+h2 {
+	@apply text-xl font-bold leading-7 text-white sm:truncate sm:text-3xl sm:tracking-tight;
+}
+
+h3 {
+	@apply text-xl mt-6 mb-4 font-bold leading-7 text-white sm:truncate sm:text-2xl sm:tracking-tight;
 }

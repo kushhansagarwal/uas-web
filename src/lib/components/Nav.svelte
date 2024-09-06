@@ -9,8 +9,8 @@
 	export let image: string | null = null;
 	export let active: string = 'home';
 
-	function clickOutside(node) {
-		const handleClick = (event) => {
+	function clickOutside(node: any) {
+		const handleClick = (event: any) => {
 			if (!node.contains(event.target)) {
 				profile_state = false;
 			}
@@ -76,7 +76,7 @@
 				</button>
 			</div>
 			<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-				<div class="items-left flex flex-shrink-0 hidden sm:block">
+				<div class="items-left flex hidden flex-shrink-0 sm:block">
 					<img class="h-8 w-auto" src={logo} alt="Your Company" />
 				</div>
 				<div class="hidden sm:ml-6 sm:block">
@@ -100,6 +100,12 @@
 							class={active === 'calendar'
 								? 'active-nav rounded-md px-3 py-2 text-sm font-medium'
 								: 'inactive-nav rounded-md px-3 py-2 text-sm font-medium'}>Calendar</a
+						>
+						<a
+							href="/sponsorships"
+							class={active === 'sponsorships'
+								? 'active-nav rounded-md px-3 py-2 text-sm font-medium'
+								: 'inactive-nav rounded-md px-3 py-2 text-sm font-medium'}>Sponsorships</a
 						>
 						<a
 							href="/gallery"
@@ -210,6 +216,13 @@
 						(active === 'calendar'
 							? 'bg-gray-900 text-white'
 							: 'text-gray-300 hover:bg-gray-700 hover:text-white')}>Calendar</a
+				>
+				<a
+					href="/sponsorships"
+					class={'block rounded-md px-3 py-2 text-base font-medium ' +
+						(active === 'sponsorships'
+							? 'bg-gray-900 text-white'
+							: 'text-gray-300 hover:bg-gray-700 hover:text-white')}>Sponsorships</a
 				>
 				<a
 					href="/gallery"

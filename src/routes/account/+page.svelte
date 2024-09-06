@@ -117,11 +117,11 @@
 				<div>
 					<div class="rounded-xl bg-gray-800 p-5">
 						<div class="">
-							<p class="font-bold">Email</p>
+							<p class="text-white font-bold">Email</p>
 							<p class="text-gray-400">{filesPromiseData.userData.email}</p>
 						</div>
 						<div class="mt-5">
-							<p class="font-bold">Date Joined</p>
+							<p class="text-white font-bold">Date Joined</p>
 							<p class="text-gray-400">
 								{moment(parseInt(filesPromiseData.userData.created)).format('DD MMMM, YYYY')}
 							</p>
@@ -144,12 +144,12 @@
 							</p>
 						</div>
 						<div class="mt-5">
-							<p class="font-bold">Level</p>
+							<p class="text-white font-bold">Level</p>
 							<p class="text-gray-400">{filesPromiseData.userData.level}</p>
 						</div>
 						{#if filesPromiseData.userData.privileges !== 'None'}
 							<div class="mt-5">
-								<p class="font-bold">Privileges</p>
+								<p class="text-white font-bold">Privileges</p>
 								<p class="text-gray-400">{filesPromiseData.userData.privileges}</p>
 							</div>
 						{/if}
