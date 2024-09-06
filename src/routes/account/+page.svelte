@@ -2,6 +2,7 @@
 	import Nav from '$lib/components/Nav.svelte';
 	export const ssr = false;
 	import moment from 'moment';
+	import QRCode from 'qrcode';
 
 	import type { PageData } from './$types';
 	import { onMount } from 'svelte';
@@ -404,6 +405,27 @@
 										class="text-blue-500">Download File</a
 									>
 								</div>
+								{#if filesPromiseData.userData.privileges === 'Admin'}
+									<div class="mt-2">
+										<button
+											on:click={() => {
+												const qrContent = `https://uasatucla.com/file/add/${file.code}`;
+												const qrCodeContainer = document.getElementById(`qr-code-${file._id}`);
+												if (qrCodeContainer) {
+													QRCode.toDataURL(qrContent, (err, url) => {
+														if (err) {
+															console.error('Error generating QR code:', err);
+														} else {
+															qrCodeContainer.innerHTML = `<img src="${url}" alt="QR Code" />`;
+														}
+													});
+												}
+											}}
+											class="text-blue-500">Show QR Code</button
+										>
+										<div id={`qr-code-${file._id}`} class="mt-2"></div>
+									</div>
+								{/if}
 							</div>
 						{/each}
 					</div>
