@@ -21,7 +21,17 @@
 			privileges: string;
 			created: string;
 		};
-		files: Array<Array<string>>;
+		files: Array<{
+			_id: string;
+			title: string;
+			date: string | null;
+			description: string;
+			code: string;
+			fileId: string;
+			fileName: string;
+			fileType: string;
+			createdAt: string;
+		}>;
 	}
 
 	let filesPromiseData: FilesPromiseData | null = null;
@@ -34,7 +44,9 @@
 
 	$: filteredFiles = searchFiles
 		? filesPromiseData?.files.filter((file) =>
-				Object.values(file).some((value) => value.toLowerCase().includes(searchFiles.toLowerCase()))
+				Object.values(file).some((value) =>
+					value?.toString().toLowerCase().includes(searchFiles.toLowerCase())
+				)
 			)
 		: filesPromiseData?.files;
 
@@ -47,28 +59,25 @@
 			if (simulate) {
 				filesPromiseData = {
 					userData: {
-						email: 'kushagarwal@g.ucla.edu',
-						givenName: 'KUSH',
-						familyName: 'HANSKUMAR AGARWAL',
-						level: 'General Member',
-						privileges: 'None',
-						created: '1689577112000'
+						email: 'kushhansagarwal@gmail.com',
+						givenName: 'Kush',
+						familyName: 'Agarwal',
+						level: 'President',
+						privileges: 'Admin',
+						created: '2024-09-06T17:33:22.357Z'
 					},
 					files: [
-						[
-							'BACAA',
-							'Solidworks',
-							'Today',
-							'This',
-							'https://drive.google.com/file/d/1yUkyBLUiuSGRpkxuxHgDW1526-YFRFmY/view?usp=drive_link'
-						],
-						['BACAC', 'OnShape', 'Yesterday', 'Those', 'Give '],
-						[
-							'SLDWRKS',
-							'SolidWorks License',
-							'Today',
-							'Instructions on how to access SolidWorks for UCLA Engineering students'
-						]
+						{
+							_id: '66db4736b390982f7ce77eaf',
+							title: 'Solidworks',
+							date: null,
+							description: 'Description',
+							code: 'SLDWRKS',
+							fileId: '11tK9wFzG3slubkiIpmdqytCsh1CfcjLS',
+							fileName: 'Building1.jpg',
+							fileType: 'image/jpeg',
+							createdAt: '2024-09-06T18:17:26.423Z'
+						}
 					]
 				};
 			} else {
@@ -81,10 +90,49 @@
 				}).then(async (res) => {
 					const jsonData = await res.json();
 					filesPromiseData = jsonData;
+					console.log(filesPromiseData);
 				});
 			}
 		}
 	});
+
+	let file: File | null = null;
+	let code = Array.from({ length: 10 }, () =>
+		Math.random().toString(36).toUpperCase().charAt(2)
+	).join('');
+	let title = '';
+	let description = '';
+	let uploadStatus: 'idle' | 'uploading' | 'success' | 'error' = 'idle';
+
+	async function handleFileUpload() {
+		if (file && code && title && description) {
+			const formData = new FormData();
+			formData.append('file', file);
+			formData.append('email', data.user.email);
+			formData.append('code', code);
+			formData.append('title', title);
+			formData.append('description', description);
+
+			try {
+				uploadStatus = 'uploading';
+				const response = await fetch('/api/account/file', {
+					method: 'POST',
+					body: formData
+				});
+				if (response.ok) {
+					console.log('File uploaded successfully');
+					uploadStatus = 'success';
+					// Optionally, refresh the file list
+				} else {
+					console.error('File upload failed');
+					uploadStatus = 'error';
+				}
+			} catch (error) {
+				console.error('Error uploading file:', error);
+				uploadStatus = 'error';
+			}
+		}
+	}
 </script>
 
 <Nav {image}></Nav>
@@ -106,7 +154,7 @@
 				<div class="h-96 rounded-xl bg-gray-800 p-5"></div>
 			</div>
 			<div class="lg:col-span-3">
-				<div class="mt-3 grid gap-5">
+				<div class="grid gap-5">
 					<div class="h-24 rounded-xl bg-gray-800 p-5"></div>
 				</div>
 			</div>
@@ -117,18 +165,18 @@
 				<div>
 					<div class="rounded-xl bg-gray-800 p-5">
 						<div class="">
-							<p class="text-white font-bold">Email</p>
+							<p class="font-bold text-white">Email</p>
 							<p class="text-gray-400">{filesPromiseData.userData.email}</p>
 						</div>
 						<div class="mt-5">
-							<p class="text-white font-bold">Date Joined</p>
+							<p class="font-bold text-white">Date Joined</p>
 							<p class="text-gray-400">
-								{moment(parseInt(filesPromiseData.userData.created)).format('DD MMMM, YYYY')}
+								{moment(filesPromiseData.userData.created).format('DD MMMM, YYYY')}
 							</p>
 							<p class="text-xs text-gray-600">
 								{(() => {
 									const duration = moment.duration(
-										moment().diff(moment(parseInt(filesPromiseData.userData.created)))
+										moment().diff(moment(filesPromiseData.userData.created))
 									);
 									const years = duration.years();
 									const months = duration.months();
@@ -144,19 +192,74 @@
 							</p>
 						</div>
 						<div class="mt-5">
-							<p class="text-white font-bold">Level</p>
+							<p class="font-bold text-white">Level</p>
 							<p class="text-gray-400">{filesPromiseData.userData.level}</p>
 						</div>
 						{#if filesPromiseData.userData.privileges !== 'None'}
 							<div class="mt-5">
-								<p class="text-white font-bold">Privileges</p>
+								<p class="font-bold text-white">Privileges</p>
 								<p class="text-gray-400">{filesPromiseData.userData.privileges}</p>
 							</div>
 						{/if}
 					</div>
 				</div>
 				<div class="lg:col-span-3">
-					<p class=" text-gray-400">These are the files you have access to.</p>
+					<div class=" rounded-xl bg-gray-800 p-5">
+						<p class="text-md mb-2 font-bold text-gray-400">Upload a file</p>
+						<div class="grid grid-cols-2 gap-2">
+							<input
+								type="text"
+								bind:value={code}
+								placeholder="Code"
+								class=" w-full rounded-xl border-2 border-gray-800 bg-gray-900 p-2 pl-3 font-mono text-gray-400"
+							/>
+							<input
+								type="text"
+								bind:value={title}
+								placeholder="Title"
+								class=" w-full rounded-xl border-2 border-gray-800 bg-gray-900 p-2 pl-3 text-gray-400"
+							/>
+						</div>
+						<input
+							type="text"
+							bind:value={description}
+							placeholder="Description"
+							class="mt-2 w-full rounded-xl border-2 border-gray-800 bg-gray-900 p-2 pl-3 text-gray-400"
+						/>
+						<label for="small-file-input" class="sr-only">Choose file</label>
+						<input
+							type="file"
+							name="small-file-input"
+							on:change={(e) => (file = e.target.files?.[0] || null)}
+							id="small-file-input"
+							class="file-input"
+						/>
+						<button
+							on:click={handleFileUpload}
+							class="button"
+							disabled={!file || !code || !title || !description || uploadStatus !== 'idle'}
+							>Upload</button
+						>
+						{#if uploadStatus !== 'idle'}
+							<div class="mt-2">
+								<p
+									class={uploadStatus === 'uploading'
+										? 'text-gray-400'
+										: uploadStatus === 'success'
+											? 'text-green-400'
+											: 'text-red-400'}
+								>
+									{uploadStatus === 'uploading'
+										? 'Uploading...'
+										: uploadStatus === 'success'
+											? 'File uploaded successfully!'
+											: 'Error uploading file.'}
+								</p>
+							</div>
+						{/if}
+					</div>
+
+					<p class="mt-5 text-gray-400">These are the files you have access to.</p>
 
 					<div class="flex grid-cols-2">
 						<input
@@ -171,12 +274,18 @@
 						{#each filteredFiles || [] as file}
 							<div class="rounded-xl bg-gray-800 p-5">
 								<p class="text-xs text-gray-400">
-									<span class="font-mono">{file[0]}</span> | Released {file[2]}
+									<span class="font-mono">{file.code}</span> | Released {moment(
+										file.createdAt
+									).format('DD MMMM, YYYY')}
 								</p>
-								<p class="text-xl font-bold text-white">{file[1]}</p>
-								<p class="text-gray-400">{file[3]}</p>
+								<p class="text-xl font-bold text-white">{file.title}</p>
+								<p class="text-gray-400">{file.description}</p>
 								<div class="mt-2">
-									<a href={file[4]} target="_blank" class="text-blue-500">Download File</a>
+									<a
+										href={`https://drive.google.com/file/d/${file.fileId}/view`}
+										target="_blank"
+										class="text-blue-500">Download File</a
+									>
 								</div>
 							</div>
 						{/each}

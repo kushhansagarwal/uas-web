@@ -1,5 +1,4 @@
-import { google } from 'googleapis';
-import { GOOGLE_SHEETS_API, EMAIL } from '$env/static/private';
+import clientPromise from '$lib/mongodb';
 
 /** @type {import('./$types').Actions} */
 export const actions = {
@@ -23,29 +22,17 @@ export const actions = {
 			values.push(researchProjects.join(', '));
 		}
 
-		const auth = new google.auth.GoogleAuth({
-			credentials: JSON.parse(GOOGLE_SHEETS_API),
-			scopes: ['https://www.googleapis.com/auth/spreadsheets']
-		});
-
-		const sheets = google.sheets({ version: 'v4', auth });
-
-		const spreadsheetId = '1IkwNC3AsIANwCl4JnknNMqNNWGbUgu1PbXnx7WbWBYw'; // Replace with your actual spreadsheet ID
-		const range = 'Interest!A:Z'; // Adjust the range as needed
+		const db = await clientPromise;
+		const collection = db.db('website').collection('interests');
 
 		try {
-			const response = await sheets.spreadsheets.values.append({
-				spreadsheetId,
-				range,
-				valueInputOption: 'USER_ENTERED',
-				requestBody: {
-					values: [values]
-				}
+			const result = await collection.insertOne({
+				data: values,
+				createdAt: new Date()
 			});
-
-			console.log('Data appended successfully:', response.data);
+			console.log('Data inserted successfully:', result);
 		} catch (error) {
-			console.error('Error appending data:', error);
+			console.error('Error inserting data:', error);
 		}
 	},
 
@@ -53,34 +40,22 @@ export const actions = {
 		const formData = await event.request.formData();
 		const values = [];
 
-		const auth = new google.auth.GoogleAuth({
-			credentials: JSON.parse(GOOGLE_SHEETS_API),
-			scopes: ['https://www.googleapis.com/auth/spreadsheets']
-		});
-
 		const email = formData.get('email-address');
 		if (email) {
 			values.push(email);
 		}
 
-		const sheets = google.sheets({ version: 'v4', auth });
-
-		const spreadsheetId = '1IkwNC3AsIANwCl4JnknNMqNNWGbUgu1PbXnx7WbWBYw'; // Replace with your actual spreadsheet ID
-		const range = 'Newsletters!A:Z'; // Adjust the range as needed
+		const db = await clientPromise;
+		const collection = db.db('website').collection('newsletters');
 
 		try {
-			const response = await sheets.spreadsheets.values.append({
-				spreadsheetId,
-				range,
-				valueInputOption: 'USER_ENTERED',
-				requestBody: {
-					values: [values]
-				}
+			const result = await collection.insertOne({
+				email: values[0],
+				createdAt: new Date()
 			});
-
-			console.log('Email appended successfully:', response.data);
+			console.log('Email inserted successfully:', result);
 		} catch (error) {
-			console.error('Error appending email:', error);
+			console.error('Error inserting email:', error);
 		}
 	}
 };
