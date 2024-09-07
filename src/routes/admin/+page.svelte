@@ -63,7 +63,7 @@
 				});
 				if (response.ok) {
 					console.log('File uploaded successfully');
-					// uploadStatus = 'success';
+					uploadStatus = 'success';
 					// Optionally, refresh the file list
 				} else {
 					console.error('File upload failed');

@@ -169,7 +169,7 @@
 					</div>
 				</div>
 				<div class="lg:col-span-3">
-					<p class="mt-5 text-gray-400">These are the files you have access to.</p>
+					<p class=" text-gray-400">These are the files you have access to.</p>
 
 					<div class="flex grid-cols-2">
 						<input

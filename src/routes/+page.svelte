@@ -20,6 +20,12 @@
 			authenticated = true;
 			image = data.user.picture;
 		}
+
+        if (localStorage.getItem("file_code")) {
+			const url = localStorage.getItem("file_code");
+			localStorage.removeItem("file_code");
+            goto(`/file/add/${url}`);
+        }
 	});
 </script>
 
