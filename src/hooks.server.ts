@@ -47,7 +47,7 @@ export const handle: Handler = async ({ event, resolve }) => {
 				level: 'General Member', // Replace with actual level
 				privileges: 'None', // Replace with actual privileges
 				createdAt: new Date(),
-				files: ['SLDWRKS']
+				files: []
 			};
 
 			const msg = {
