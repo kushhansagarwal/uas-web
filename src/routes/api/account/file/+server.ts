@@ -4,10 +4,30 @@ import { google } from 'googleapis';
 import fs from 'fs';
 import { GOOGLE_SHEETS_API } from '$env/static/private';
 import clientPromise from '$lib/mongodb';
+import { verifyToken } from '$lib/verifyToken';
 
 export const POST: RequestHandler = async ({ request }) => {
 	const start = Date.now(); // Start timing the entire process
 	try {
+		const token = request.headers.get('Authorization')?.split(' ')[1];
+		if (!token) {
+			throw new Error('No token provided');
+		}
+		const email = await verifyToken(token);
+
+		const db = await clientPromise;
+		const usersCollection = db.db('website').collection('users');
+		const user = await usersCollection.findOne({ email });
+
+		if (!user) {
+			throw new Error('User not found');
+		}
+
+		const isAdmin = user.email === 'kushhansagarwal@gmail.com';
+		if (!isAdmin) {
+			throw new Error('User does not have admin privileges');
+		}
+
 		const credentialsStart = Date.now();
 		const credentials = JSON.parse(GOOGLE_SHEETS_API);
 		console.log(`Credentials parsing took ${Date.now() - credentialsStart}ms`);
@@ -63,17 +83,15 @@ export const POST: RequestHandler = async ({ request }) => {
 
 		// Save the file information and other details to MongoDB
 		const dbStart = Date.now();
-		const db = await clientPromise;
 		const filesCollection = db.db('website').collection('files');
 		await filesCollection.insertOne({
 			title,
-			date,
 			description,
 			code,
 			fileId: uploadedFile.data.id,
 			fileName: file.name,
 			fileType: file.type,
-			createdAt: new Date()
+			date: new Date()
 		});
 		console.log(`Database insertion took ${Date.now() - dbStart}ms`);
 

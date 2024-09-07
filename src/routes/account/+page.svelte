@@ -42,6 +42,7 @@
 	const simulate = false;
 
 	let searchFiles = '';
+	let token = '';
 
 	$: filteredFiles = searchFiles
 		? filesPromiseData?.files.filter((file) =>
@@ -56,7 +57,7 @@
 			goto('/api/auth/login');
 		} else {
 			image = data.user.picture;
-
+			token = data.token;
 			if (simulate) {
 				filesPromiseData = {
 					userData: {
@@ -85,7 +86,8 @@
 				FilesPromise = fetch('/api/account/files', {
 					method: 'POST',
 					headers: {
-						'Content-Type': 'application/json'
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${token}`
 					},
 					body: JSON.stringify({ email: data.user.email })
 				}).then(async (res) => {
@@ -96,84 +98,6 @@
 			}
 		}
 	});
-
-	let file: File | null = null;
-	let code = Array.from({ length: 10 }, () =>
-		Math.random().toString(36).toUpperCase().charAt(2)
-	).join('');
-	let title = '';
-	let description = '';
-	let uploadStatus: 'idle' | 'uploading' | 'success' | 'error' = 'idle';
-
-	async function handleFileUpload() {
-		if (file && code && title && description) {
-			const formData = new FormData();
-			formData.append('file', file);
-			formData.append('email', data.user.email);
-			formData.append('code', code);
-			formData.append('title', title);
-			formData.append('description', description);
-
-			try {
-				uploadStatus = 'uploading';
-				const response = await fetch('/api/account/file', {
-					method: 'POST',
-					body: formData
-				});
-				if (response.ok) {
-					console.log('File uploaded successfully');
-					uploadStatus = 'success';
-					// Optionally, refresh the file list
-				} else {
-					console.error('File upload failed');
-					uploadStatus = 'error';
-				}
-			} catch (error) {
-				console.error('Error uploading file:', error);
-				uploadStatus = 'error';
-			}
-		}
-	}
-
-	let eventFile: File | null = null;
-	let eventTitle = '';
-	let eventDescription = '';
-	let eventLocation = '';
-	let eventDate: string | null = null;
-	let eventRsvp = false;
-	let eventUploadStatus: 'idle' | 'uploading' | 'success' | 'error' = 'idle';
-
-	async function handleEventUpload() {
-		if (eventFile && eventTitle && eventDescription && eventLocation && eventDate) {
-			const formData = new FormData();
-			formData.append('file', eventFile);
-			formData.append('email', data.user.email);
-			formData.append('title', eventTitle);
-			formData.append('description', eventDescription);
-			formData.append('location', eventLocation);
-			formData.append('date', eventDate);
-			formData.append('rsvp', eventRsvp.toString());
-
-			try {
-				eventUploadStatus = 'uploading';
-				const response = await fetch('/api/calendar/add', {
-					method: 'POST',
-					body: formData
-				});
-				if (response.ok) {
-					console.log('Event uploaded successfully');
-					eventUploadStatus = 'success';
-					// Optionally, refresh the event list
-				} else {
-					console.error('Event upload failed');
-					eventUploadStatus = 'error';
-				}
-			} catch (error) {
-				console.error('Error uploading event:', error);
-				eventUploadStatus = 'error';
-			}
-		}
-	}
 </script>
 
 <Nav {image}></Nav>
@@ -245,138 +169,6 @@
 					</div>
 				</div>
 				<div class="lg:col-span-3">
-					{#if filesPromiseData.userData.privileges === 'Admin'}
-						<div class=" rounded-xl bg-gray-800 p-5">
-							<p class="text-md mb-2 font-bold text-gray-400">Upload a file</p>
-							<div class="grid grid-cols-2 gap-2">
-								<input
-									type="text"
-									bind:value={code}
-									placeholder="Code"
-									class=" w-full rounded-xl border-2 border-gray-800 bg-gray-900 p-2 pl-3 font-mono text-gray-400"
-								/>
-								<input
-									type="text"
-									bind:value={title}
-									placeholder="Title"
-									class=" w-full rounded-xl border-2 border-gray-800 bg-gray-900 p-2 pl-3 text-gray-400"
-								/>
-							</div>
-							<input
-								type="text"
-								bind:value={description}
-								placeholder="Description"
-								class="mt-2 w-full rounded-xl border-2 border-gray-800 bg-gray-900 p-2 pl-3 text-gray-400"
-							/>
-							<label for="small-file-input" class="sr-only">Choose file</label>
-							<input
-								type="file"
-								name="small-file-input"
-								on:change={(e) => (file = e.target.files?.[0] || null)}
-								id="small-file-input"
-								class="file-input"
-							/>
-							<button
-								on:click={handleFileUpload}
-								class="button"
-								disabled={!file ||
-									!code ||
-									!title ||
-									!description ||
-									uploadStatus == 'uploading' ||
-									uploadStatus == 'success'}>Upload</button
-							>
-							{#if uploadStatus !== 'idle'}
-								<div class="mt-2">
-									<p
-										class={uploadStatus === 'uploading'
-											? 'text-gray-400'
-											: uploadStatus === 'success'
-												? 'text-green-400'
-												: 'text-red-400'}
-									>
-										{uploadStatus === 'uploading'
-											? 'Uploading...'
-											: uploadStatus === 'success'
-												? 'File uploaded successfully!'
-												: 'Error uploading file.'}
-									</p>
-								</div>
-							{/if}
-						</div>
-
-						<div class=" mt-5 rounded-xl bg-gray-800 p-5">
-							<p class="text-md mb-2 font-bold text-gray-400">Create an event</p>
-							<div class="grid grid-cols-2 gap-2">
-								<input
-									type="text"
-									bind:value={eventTitle}
-									placeholder="Title"
-									class=" w-full rounded-xl border-2 border-gray-800 bg-gray-900 p-2 pl-3 text-gray-400"
-								/>
-								<input
-									type="text"
-									bind:value={eventLocation}
-									placeholder="Location"
-									class=" w-full rounded-xl border-2 border-gray-800 bg-gray-900 p-2 pl-3 text-gray-400"
-								/>
-							</div>
-							<input
-								type="text"
-								bind:value={eventDescription}
-								placeholder="Description"
-								class="mt-2 w-full rounded-xl border-2 border-gray-800 bg-gray-900 p-2 pl-3 text-gray-400"
-							/>
-							<input
-								type="datetime-local"
-								bind:value={eventDate}
-								class="mt-2 w-full rounded-xl border-2 border-gray-800 bg-gray-900 p-2 pl-3 text-gray-400"
-							/>
-							<label for="event-file-input" class="sr-only">Choose file</label>
-							<input
-								type="file"
-								name="event-file-input"
-								on:change={(e) => (eventFile = e.target.files?.[0] || null)}
-								id="event-file-input"
-								class="file-input"
-							/>
-							<div class="mt-2">
-								<label class="text-gray-400">
-									<input type="checkbox" bind:checked={eventRsvp} />
-									<span class="ml-2">RSVP Required</span>
-								</label>
-							</div>
-							<button
-								on:click={handleEventUpload}
-								class="button"
-								disabled={!eventFile ||
-									!eventTitle ||
-									!eventDescription ||
-									!eventLocation ||
-									!eventDate ||
-									eventUploadStatus == 'uploading' ||
-									eventUploadStatus == 'success'}>Create Event</button
-							>
-							{#if eventUploadStatus !== 'idle'}
-								<div class="mt-2">
-									<p
-										class={eventUploadStatus === 'uploading'
-											? 'text-gray-400'
-											: eventUploadStatus === 'success'
-												? 'text-green-400'
-												: 'text-red-400'}
-									>
-										{eventUploadStatus === 'uploading'
-											? 'Uploading...'
-											: eventUploadStatus === 'success'
-												? 'Event created successfully!'
-												: 'Error creating event.'}
-									</p>
-								</div>
-							{/if}
-						</div>
-					{/if}
-
 					<p class="mt-5 text-gray-400">These are the files you have access to.</p>
 
 					<div class="flex grid-cols-2">
