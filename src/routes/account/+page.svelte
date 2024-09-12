@@ -184,9 +184,7 @@
 						{#each filteredFiles || [] as file}
 							<div class="rounded-xl bg-gray-800 p-5">
 								<p class="text-xs text-gray-400">
-									<span class="font-mono">{file.code}</span> | Released {moment(
-										file.createdAt
-									).format('DD MMMM, YYYY')}
+									Released {moment(file.createdAt).format('DD MMMM, YYYY')} <span class="font-mono bg-gray-800 p-1 rounded-md text-gray-800 hover:text-gray-400 hover:bg-gray-700 transition-colors duration-300 cursor-pointer">{file.code}</span>
 								</p>
 								<p class="text-xl font-bold text-white">{file.title}</p>
 								<p class="text-gray-400">{file.description}</p>
