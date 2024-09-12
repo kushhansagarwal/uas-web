@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SponsorList from './../lib/components/SponsorList.svelte';
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import Sec1 from './../lib/components/Sec1.svelte';
@@ -31,8 +32,8 @@
 
 <Hero {image}></Hero>
 <InlineGallery></InlineGallery>
-
 <Sec1></Sec1>
+<SponsorList></SponsorList>
 <Sec2></Sec2>
 <Sec3></Sec3>
 <Team></Team>

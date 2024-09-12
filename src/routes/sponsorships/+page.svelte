@@ -163,12 +163,10 @@
 			<img class="h-11" src={logo} alt="Your Company" />
 
 			<h1 class="mt-5 text-4xl font-bold tracking-tight text-white sm:text-6xl">
-				<span class="gradient-text">Sponsor</span> us
+				Thank you to our <span class="gradient-text">sponsors</span>
 			</h1>
 			<p class="mt-6 text-lg leading-8 text-gray-300">
-				UAS@UCLA is dependent on the support of our sponsors. We are grateful for any and all
-				support, whether it be financial or in kind. Learn about our current sponsors and the
-				benefits of sponsoring us.
+				We extend our heartfelt gratitude to our sponsors for their invaluable support. Your contributions make a significant impact on our mission. 
 			</p>
 			<div class="mt-5 flex items-center gap-x-6">
 				<a
@@ -194,7 +192,7 @@
 	</div>
 </div>
 
-<div class="mx-auto mb-10 max-w-2xl px-6 lg:px-8 lg:text-center">
+<!-- <div class="mx-auto mb-10 max-w-2xl px-6 lg:px-8 lg:text-center">
 	<h2 class="text-base font-semibold leading-7 text-indigo-400">Sponsorship Package</h2>
 	<p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
 		Support the future of autonomous flight
@@ -203,7 +201,7 @@
 		UAS@UCLA is at the forefront of drone innovation, dedicated to advancing aerial robotics through
 		cutting-edge research and practical applications
 	</p>
-</div>
+</div> -->
 
 <div class="mx-auto grid gap-8 px-5 pb-24 pt-20 sm:pb-32 md:grid-cols-2 lg:grid-cols-3 lg:px-8 lg:py-20">
 	{#each sponsors as sponsor}
