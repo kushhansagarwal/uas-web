@@ -205,6 +205,8 @@
 	</p>
 </div>
 
-{#each sponsors as sponsor}
-	<SponsorTile {sponsor} />
-{/each}
+<div class="mx-auto grid gap-8 px-5 pb-24 pt-20 sm:pb-32 md:grid-cols-2 lg:grid-cols-3 lg:px-8 lg:py-20">
+	{#each sponsors as sponsor}
+		<SponsorTile {sponsor} />
+	{/each}
+</div>
