@@ -20,7 +20,7 @@
 				<img
 					src={sponsor.image}
 					alt={sponsor.name}
-					class="mb-10 mt-5 w-[48rem] max-w-96 sm:w-[57rem] md:-ml-4 lg:-ml-0"
+					class="mb-10 p-10 mt-5 w-[48rem] max-w-96 sm:w-[57rem] md:-ml-4 lg:-ml-0"
 				/>
 			</div>
 			<div class="lg:pr-8 lg:pt-4">

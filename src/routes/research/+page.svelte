@@ -50,8 +50,6 @@
 	}
 
 	import type { PageData } from './$types';
-	import { goto } from '$app/navigation';
-
 	export let data: PageData;
 	let image: string | null = null;
 

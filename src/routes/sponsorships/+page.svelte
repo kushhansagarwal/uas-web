@@ -158,7 +158,7 @@
 			fill="url(#983e3e4c-de6d-4c3f-8d64-b9761d1534cc)"
 		/>
 	</svg>
-	<div class="mx-auto max-w-7xl px-5 pb-24 pt-20 sm:pb-32 lg:flex lg:px-8 lg:py-20">
+	<div class="mx-auto max-w-7xl px-5 pb-24 pt-20 sm:pb-32 xl:flex xl:px-8 xl:py-20">
 		<div class="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-40">
 			<img class="h-11" src={logo} alt="Your Company" />
 
@@ -203,7 +203,7 @@
 	</p>
 </div> -->
 
-<div class="mx-auto grid gap-8 px-5 pb-24 pt-20 sm:pb-32 md:grid-cols-2 lg:grid-cols-3 lg:px-8 lg:py-20">
+<div class="mx-auto grid gap-8 px-5 pb-24 pt-20 sm:pb-32 md:grid-cols-2 xl:grid-cols-3 lg:px-8 lg:py-20">
 	{#each sponsors as sponsor}
 		<SponsorTile {sponsor} />
 	{/each}
