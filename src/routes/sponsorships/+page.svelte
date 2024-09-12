@@ -2,8 +2,120 @@
 	import { onMount } from 'svelte';
 	import Nav from '$lib/components/Nav.svelte';
 	import logo from '$lib/assets/logo.svg';
-
 	import type { PageData } from './$types';
+	import SponsorTile from './SponsorTile.svelte';
+
+	import aiaa from '$lib/assets/sponsors/aiaa.svg';
+	import northrop from '$lib/assets/sponsors/northrop.svg';
+	import holybro from '$lib/assets/sponsors/holybro.svg';
+	import fetch from '$lib/assets/sponsors/fetch.svg';
+	import innovationlab from '$lib/assets/sponsors/innovationlab.svg';
+	import uclaalum from '$lib/assets/sponsors/ucla-alum.svg';
+	import solidworks from '$lib/assets/sponsors/solidworks.svg';
+	import boeing from '$lib/assets/sponsors/boeing.svg';
+	import bp8 from '$lib/assets/bp-8.svg';
+
+	interface Sponsor {
+		type: string;
+		name: string;
+		description: string;
+		website: string;
+		image: string;
+		benefits: string[];
+	}
+
+	let sponsors: Sponsor[] = [
+		{
+			type: 'Software & AI Services',
+			name: 'Fetch.ai',
+			website: 'https://fetch.ai/',
+			description:
+				'Fetch.ai is a platform that enables the development of decentralized machine learning networks and autonomous economic agents to optimize various industries. Their technology facilitates secure, peer-to-peer applications, automating complex processes without the need for intermediaries.',
+			image: innovationlab,
+			benefits: [
+				'Access to cutting-edge AI and machine learning technologies',
+				'Opportunity to collaborate with a leading AI company',
+				'Potential for joint research and development projects'
+			]
+		},
+		{
+			type: 'Hardware & Drone Technology',
+			name: 'Holybro',
+			website: 'https://www.holybro.com/',
+			description:
+				'Holybro is a leading provider of cutting-edge drone control technology, specializing in hardware solutions that enhance the performance and reliability of unmanned aerial vehicles. Their innovative products are designed for both hobbyists and professionals in the drone industry.',
+			image: holybro,
+			benefits: [
+				'Access to industry-leading drone control systems',
+				'Hardware for technical workshops and competitions'
+			]
+		},
+		{
+			type: 'Professional Development',
+			name: 'AIAA',
+			website: 'https://www.aiaa.org/',
+			description:
+				'AIAA provides equipment support, mentoring, and industry connections to help professionals advance in their careers and enhance their skills in the aerospace industry.',
+			image: aiaa,
+			benefits: [
+				'Access to industry-leading equipment and resources',
+				'Mentorship from professionals',
+				'Opportunities to connect with industry leaders and peers'
+			]
+		},
+		{
+			type: 'Alumni Support',
+			name: 'UCLA Alumni Association',
+			website: 'https://alumni.ucla.edu/',
+			description:
+				'Together, we can make a difference! The UCLA Alumni Association provides financial support to various initiatives and programs that benefit students and the university community.',
+			image: uclaalum,
+			benefits: [
+				'Access to alumni events and networking opportunities',
+				'Support for student scholarships and programs',
+				'Engagement in community service and outreach initiatives'
+			]
+		},
+		{
+			type: 'CAD Software',
+			name: 'SolidWorks',
+			website: 'https://www.solidworks.com/',
+			description:
+				'SolidWorks is a powerful CAD software that enables engineers and designers to create 3D models and simulations, enhancing product design and development processes.',
+			image: solidworks,
+			benefits: [
+				'Access to advanced 3D modeling and simulation tools',
+				'Collaboration features for team projects',
+				'Extensive library of components and materials'
+			]
+		},
+		{
+			type: 'Aerospace Industry',
+			name: 'Boeing',
+			website: 'https://www.boeing.com/',
+			description:
+				'Boeing is a leading aerospace company that provides financial support and industry connections to help advance aerospace initiatives and education.',
+			image: boeing,
+			benefits: [
+				'Access to exclusive industry events and networking opportunities',
+				'Support for educational programs and scholarships',
+				'Collaboration on aerospace research and development projects'
+			]
+		},
+		{
+			type: 'Aerospace Industry',
+			name: 'Northrop Grumman',
+			website: 'https://www.northropgrumman.com/',
+			description:
+				'Northrop Grumman is a global aerospace and defense technology company that provides monetary support and valuable industry connections to foster innovation and education.',
+			image: northrop,
+			benefits: [
+				'Opportunities for internships and career development',
+				'Access to cutting-edge technology and resources',
+				'Engagement in community outreach and educational initiatives'
+			]
+		}
+	];
 
 	export let data: PageData;
 	let image: string | null = null;
@@ -54,27 +166,45 @@
 				<span class="gradient-text">Sponsor</span> us
 			</h1>
 			<p class="mt-6 text-lg leading-8 text-gray-300">
-				We are UCLA's premier aerial robotics team with years of experience with autonomous drones
-				and planes. Our technical subteams cover various aerospace, mechanical, electrical and
-				computer science disciplines. We design our frames, create and maintain software for
-				communication, develop algorithms for target detection and identification, create mechanisms
-				for various in-air missions and a lot more.
+				UAS@UCLA is dependent on the support of our sponsors. We are grateful for any and all
+				support, whether it be financial or in kind. Learn about our current sponsors and the
+				benefits of sponsoring us.
 			</p>
+			<div class="mt-5 flex items-center gap-x-6">
+				<a
+					href="src/lib/assets/UAS Sponsorship Package.pdf"
+					class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+					>Download Sponsorship Package <span aria-hidden="true">&rarr;</span></a
+				>
+			</div>
 		</div>
-		<div class=" flex sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:flex-none xl:ml-32">
-			<div class="w-full"></div>
-		</div>
-	</div>
-	<div class="mx-auto mt-10 max-w-7xl px-5 md:flex md:items-center md:justify-between lg:px-8">
-		<div class="min-w-0 flex-1">
-			<h3>Sponsorship Package</h3>
-
-			<embed
-				src="src/lib/assets/UAS Sponsorship Package.pdf"
-				type="application/pdf"
-				width="100%"
-				height="1000px"
-			/>
+		<div
+			class="mx-auto flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32"
+		>
+			<div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
+				<img
+					src={bp8}
+					alt="App screenshot"
+					width="2432"
+					height="1442"
+					class="w-[76rem] rounded-md"
+				/>
+			</div>
 		</div>
 	</div>
 </div>
+
+<div class="mx-auto mb-10 max-w-2xl px-6 lg:px-8 lg:text-center">
+	<h2 class="text-base font-semibold leading-7 text-indigo-400">Sponsorship Package</h2>
+	<p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+		Support the future of autonomous flight
+	</p>
+	<p class="mt-6 text-lg leading-8 text-gray-300">
+		UAS@UCLA is at the forefront of drone innovation, dedicated to advancing aerial robotics through
+		cutting-edge research and practical applications
+	</p>
+</div>
+
+{#each sponsors as sponsor}
+	<SponsorTile {sponsor} />
+{/each}

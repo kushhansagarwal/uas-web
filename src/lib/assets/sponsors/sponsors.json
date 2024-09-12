@@ -1,0 +1,28 @@
+{
+    "sponsors": [
+        {
+            "type": "Software & AI Services",
+            "name": "Fetch.ai",
+            "website": "https://fetch.ai/",
+            "description": "Fetch.ai is a platform that enables the development of decentralized machine learning networks and autonomous economic agents to optimize various industries. Their technology facilitates secure, peer-to-peer applications, automating complex processes without the need for intermediaries.",
+            "image": "innovationlab",
+            "benefits": [
+                "Access to cutting-edge AI and machine learning technologies",
+                "Opportunity to collaborate with a leading AI company",
+                "Potential for joint research and development projects"
+            ]
+        },
+        {
+            "type": "Hardware & Drone Technology",
+            "name": "Holybro",
+            "website": "https://www.holybro.com/",
+            "description": "Holybro is a leading provider of cutting-edge drone control technology, specializing in hardware solutions that enhance the performance and reliability of unmanned aerial vehicles. Their innovative products are designed for both hobbyists and professionals in the drone industry.",
+            "image": "holybro",
+            "benefits": [
+                "Access to advanced drone control systems",
+                "Support for various drone applications and industries",
+                "Collaboration opportunities in drone technology development"
+            ]
+        }
+    ]
+}
