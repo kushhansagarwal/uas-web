@@ -13,7 +13,7 @@ export async function load({ locals, url }: RequestEvent) {
 		allUsers = await usersCollection.find({}).project({ _id: 0 }).toArray();
 	}
 
-	console.log(isAdmin);
+	// console.log(isAdmin);
 
 	return {
 		isAuthenticated,

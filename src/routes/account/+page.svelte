@@ -93,7 +93,7 @@
 				}).then(async (res) => {
 					const jsonData = await res.json();
 					filesPromiseData = jsonData;
-					console.log(filesPromiseData);
+					// console.log(filesPromiseData);
 				});
 			}
 		}
@@ -146,7 +146,7 @@
 									const years = duration.years();
 									const months = duration.months();
 									const days = duration.days();
-									console.log(years, months, days);
+									// console.log(years, months, days);
 
 									const parts = [];
 									if (years > 0) parts.push(`${years} year${years > 1 ? 's' : ''}`);

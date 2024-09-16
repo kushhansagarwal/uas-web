@@ -11,14 +11,14 @@ sgMail.setApiKey(SENDGRID);
 export const handle: Handler = async ({ event, resolve }) => {
 	const start = Date.now();
 	sessionHooks({ event });
-	console.log(`Session hooks took ${Date.now() - start}ms`);
+	// console.log(`Session hooks took ${Date.now() - start}ms`);
 
 	const authStart = Date.now();
 	const isAuthenticated = await kindeAuthClient.isAuthenticated(
 		event.request as unknown as SessionManager
 	);
 	let token = '';
-	console.log(`Authentication check took ${Date.now() - authStart}ms`);
+	// console.log(`Authentication check took ${Date.now() - authStart}ms`);
 
 	let user = {
 		family_name: '',
@@ -32,7 +32,7 @@ export const handle: Handler = async ({ event, resolve }) => {
 		const userFetchStart = Date.now();
 		user = await kindeAuthClient.getUser(event.request as unknown as SessionManager);
 		token = await kindeAuthClient.getToken(event.request as unknown as SessionManager);
-		console.log(`Fetching user took ${Date.now() - userFetchStart}ms`);
+		// console.log(`Fetching user took ${Date.now() - userFetchStart}ms`);
 
 		const db = await clientPromise;
 		const usersCollection = db.db('website').collection('users');
@@ -63,7 +63,7 @@ export const handle: Handler = async ({ event, resolve }) => {
 
 			const insertStart = Date.now();
 			await usersCollection.insertOne(newUser);
-			console.log(`Inserting user into MongoDB took ${Date.now() - insertStart}ms`);
+			// console.log(`Inserting user into MongoDB took ${Date.now() - insertStart}ms`);
 		}
 	}
 
@@ -73,6 +73,6 @@ export const handle: Handler = async ({ event, resolve }) => {
 
 	const resolveStart = Date.now();
 	const response = await resolve(event);
-	console.log(`Resolving event took ${Date.now() - resolveStart}ms`);
+	// console.log(`Resolving event took ${Date.now() - resolveStart}ms`);
 	return response;
 };

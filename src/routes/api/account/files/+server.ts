@@ -23,7 +23,7 @@ export const POST: RequestHandler = async ({ request }) => {
 			return new Response('User not found', { status: 404 });
 		}
 
-		console.log(user.privileges);
+		// console.log(user.privileges);
 
 		if (user.privileges === 'Admin') {
 			const allUsers = await usersCollection.find({}).toArray(); // Return all users if user is Admin
@@ -51,7 +51,7 @@ export const POST: RequestHandler = async ({ request }) => {
 			);
 		} else {
 			const userCodes = user.files;
-			console.log(userCodes);
+			// console.log(userCodes);
 			matchingFiles = await filesCollection.find({ code: { $in: userCodes } }).toArray(); // Filter files based on user codes
 
 			return new Response(

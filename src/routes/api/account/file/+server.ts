@@ -30,11 +30,11 @@ export const POST: RequestHandler = async ({ request }) => {
 
 		const credentialsStart = Date.now();
 		const credentials = JSON.parse(GOOGLE_SHEETS_API);
-		console.log(`Credentials parsing took ${Date.now() - credentialsStart}ms`);
+		// console.log(`Credentials parsing took ${Date.now() - credentialsStart}ms`);
 
 		const formStart = Date.now();
 		const form = await request.formData();
-		console.log(`Form data retrieval took ${Date.now() - formStart}ms`);
+		// console.log(`Form data retrieval took ${Date.now() - formStart}ms`);
 
 		const file = form.get('file') as File;
 		const title = form.get('title') as string;
@@ -50,18 +50,18 @@ export const POST: RequestHandler = async ({ request }) => {
 		const bufferStart = Date.now();
 		const buffer = await file.arrayBuffer();
 		fs.writeFileSync(tempFilePath, Buffer.from(buffer));
-		console.log(`File writing took ${Date.now() - bufferStart}ms`);
+		// console.log(`File writing took ${Date.now() - bufferStart}ms`);
 
 		const authStart = Date.now();
 		const auth = new GoogleAuth({
 			credentials,
 			scopes: 'https://www.googleapis.com/auth/drive'
 		});
-		console.log(`Authentication setup took ${Date.now() - authStart}ms`);
+		// console.log(`Authentication setup took ${Date.now() - authStart}ms`);
 
 		const serviceStart = Date.now();
 		const service = google.drive({ version: 'v3', auth });
-		console.log(`Google Drive service initialization took ${Date.now() - serviceStart}ms`);
+		// console.log(`Google Drive service initialization took ${Date.now() - serviceStart}ms`);
 
 		const requestBody = {
 			name: file.name,
@@ -78,8 +78,8 @@ export const POST: RequestHandler = async ({ request }) => {
 			requestBody,
 			media: media
 		});
-		console.log(`File upload took ${Date.now() - uploadStart}ms`);
-		console.log('File Id:', uploadedFile.data.id);
+		// console.log(`File upload took ${Date.now() - uploadStart}ms`);
+		// console.log('File Id:', uploadedFile.data.id);
 
 		// Save the file information and other details to MongoDB
 		const dbStart = Date.now();
@@ -93,14 +93,14 @@ export const POST: RequestHandler = async ({ request }) => {
 			fileType: file.type,
 			date: new Date()
 		});
-		console.log(`Database insertion took ${Date.now() - dbStart}ms`);
+		// console.log(`Database insertion took ${Date.now() - dbStart}ms`);
 
 		const headers = new Headers();
 		headers.set('Access-Control-Allow-Origin', '*');
 		headers.set('Access-Control-Allow-Methods', 'POST');
 		headers.set('Access-Control-Allow-Headers', 'Content-Type');
 
-		console.log(`Total processing time: ${Date.now() - start}ms`);
+		// console.log(`Total processing time: ${Date.now() - start}ms`);
 		return new Response('File uploaded and data saved successfully', { status: 200, headers });
 	} catch (error) {
 		console.error('Error uploading file:', error);

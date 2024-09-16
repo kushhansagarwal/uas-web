@@ -8,7 +8,7 @@ export const actions = {
 		let researchProjects = [];
 
 		for (const [key, value] of formData.entries()) {
-			console.log(`${key}: ${value}`);
+			// console.log(`${key}: ${value}`);
 			if (key === 'research-project') {
 				// Collect all research projects
 				researchProjects.push(value);
@@ -30,7 +30,7 @@ export const actions = {
 				data: values,
 				createdAt: new Date()
 			});
-			console.log('Data inserted successfully:', result);
+			// console.log('Data inserted successfully:', result);
 		} catch (error) {
 			console.error('Error inserting data:', error);
 		}
@@ -53,7 +53,7 @@ export const actions = {
 				email: values[0],
 				createdAt: new Date()
 			});
-			console.log('Email inserted successfully:', result);
+			// console.log('Email inserted successfully:', result);
 		} catch (error) {
 			console.error('Error inserting email:', error);
 		}

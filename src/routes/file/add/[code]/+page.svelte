@@ -13,7 +13,7 @@
 			goto('/api/auth/login');
 		} else {
 
-            console.log("logged in now, adding gile with code", code);
+            // console.log("logged in now, adding gile with code", code);
             
 			// Append code to user's files array in MongoDB
 			const response = await fetch('/api/account/files/add', {

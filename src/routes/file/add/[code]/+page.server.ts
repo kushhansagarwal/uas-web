@@ -4,7 +4,7 @@ export async function load({ locals, params }: RequestEvent) {
 	const { isAuthenticated, user } = locals;
 	const { code } = params;
 
-	console.log(code);
+	// console.log(code);
 
 	return {
 		isAuthenticated,

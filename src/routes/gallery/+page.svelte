@@ -11,7 +11,7 @@
 	const gallery: Record<string, string[]> | undefined= data.gallery;
 
 	onMount(() => {
-		console.log(data);
+		// console.log(data);
 
 		if (data.isAuthenticated) {
 			image = data.user.picture;

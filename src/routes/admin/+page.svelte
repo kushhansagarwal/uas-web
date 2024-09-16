@@ -62,7 +62,7 @@
 					}
 				});
 				if (response.ok) {
-					console.log('File uploaded successfully');
+					// console.log('File uploaded successfully');
 					uploadStatus = 'success';
 					// Optionally, refresh the file list
 				} else {
@@ -105,7 +105,7 @@
 					}
 				});
 				if (response.ok) {
-					console.log('Event uploaded successfully');
+					// console.log('Event uploaded successfully');
 					eventUploadStatus = 'success';
 					// Optionally, refresh the event list
 				} else {
