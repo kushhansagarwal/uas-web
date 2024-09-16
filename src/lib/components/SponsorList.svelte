@@ -7,6 +7,7 @@
 	import uclaalum from '$lib/assets/sponsors/ucla-alum.svg';
 	import solidworks from '$lib/assets/sponsors/solidworks.svg';
 	import boeing from '$lib/assets/sponsors/boeing.svg';
+	import skillcatapp from '$lib/assets/sponsors/skillcatapp.svg';
 
 	const sponsors = [fetch, innovationlab, holybro, aiaa, uclaalum, solidworks, boeing, northrop];
 </script>
@@ -31,5 +32,12 @@
 				alt={sponsor}
 			/>
 		{/each}
+		<a href="https://skillcatapp.com" target="_blank" rel="noopener noreferrer">
+			<img
+				class="transform opacity-80 transition-transform duration-300 hover:scale-105 hover:opacity-100"
+				src={skillcatapp}
+				alt={skillcatapp}
+			/>
+		</a>
 	</div>
 </div>
