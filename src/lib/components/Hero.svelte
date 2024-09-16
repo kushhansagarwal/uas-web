@@ -100,7 +100,7 @@
 				We <span class="gradient-text">{displayText}</span> the future of drones
 			</h1>
 			<p class="mt-6 text-lg leading-8 text-gray-300">
-				We are UAS@UCLA, the undergraduate aerial robotics team at UCLA. Our student-run
+				We are UAS@UCLA, the premier undergraduate aerial robotics team at UCLA. Our student-run
 				team designs, manufactures, and tests cutting-edge drone hardware and software.
 			</p>
 			<div class="mt-10 flex items-center gap-x-6">
