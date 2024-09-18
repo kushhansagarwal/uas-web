@@ -63,7 +63,7 @@
 </script>
 
 
-<div class="relative isolate overflow-hidden bg-gray-900">
+<div class="relative isolate overflow-hidden base-color">
 	<Nav {image} active="research"></Nav>
 	<svg
 		class="absolute inset-0 -z-10 h-full w-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
@@ -130,7 +130,7 @@
 		</div>
 	</div>
 </div>
-<div id="solarplane" class="bg-gray-900 pb-24">
+<div id="solarplane" class="base-color pb-24">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-5xl sm:text-center">
 			<h2 class="text-base font-semibold leading-7 text-indigo-400">
@@ -282,7 +282,7 @@
 	</div>
 </div>
 
-<div id="3dmapping" class="bg-gray-900 pb-24">
+<div id="3dmapping" class="base-color pb-24">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-5xl sm:text-center">
 			<h2 class="text-base font-semibold leading-7 text-indigo-400">For Computer Science Majors</h2>
@@ -438,7 +438,7 @@
 	</div>
 </div>
 
-<div id="delivery" class="bg-gray-900 pb-24">
+<div id="delivery" class="base-color pb-24">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-5xl sm:text-center">
 			<h2 class="text-base font-semibold leading-7 text-indigo-400">For All Majors</h2>

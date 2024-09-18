@@ -138,20 +138,20 @@
 							type="text"
 							bind:value={code}
 							placeholder="Code"
-							class=" w-full rounded-xl border-2 border-gray-800 bg-gray-900 p-2 pl-3 font-mono text-gray-400"
+							class=" w-full rounded-xl border-2 border-gray-800 base-color p-2 pl-3 font-mono text-gray-400"
 						/>
 						<input
 							type="text"
 							bind:value={title}
 							placeholder="Title"
-							class=" w-full rounded-xl border-2 border-gray-800 bg-gray-900 p-2 pl-3 text-gray-400"
+							class=" w-full rounded-xl border-2 border-gray-800 base-color p-2 pl-3 text-gray-400"
 						/>
 					</div>
 					<input
 						type="text"
 						bind:value={description}
 						placeholder="Description"
-						class="mt-2 w-full rounded-xl border-2 border-gray-800 bg-gray-900 p-2 pl-3 text-gray-400"
+						class="mt-2 w-full rounded-xl border-2 border-gray-800 base-color p-2 pl-3 text-gray-400"
 					/>
 					<label for="small-file-input" class="sr-only">Choose file</label>
 					<input
@@ -197,25 +197,25 @@
 							type="text"
 							bind:value={eventTitle}
 							placeholder="Title"
-							class=" w-full rounded-xl border-2 border-gray-800 bg-gray-900 p-2 pl-3 text-gray-400"
+							class=" w-full rounded-xl border-2 border-gray-800 base-color p-2 pl-3 text-gray-400"
 						/>
 						<input
 							type="text"
 							bind:value={eventLocation}
 							placeholder="Location"
-							class=" w-full rounded-xl border-2 border-gray-800 bg-gray-900 p-2 pl-3 text-gray-400"
+							class=" w-full rounded-xl border-2 border-gray-800 base-color p-2 pl-3 text-gray-400"
 						/>
 					</div>
 					<input
 						type="text"
 						bind:value={eventDescription}
 						placeholder="Description"
-						class="mt-2 w-full rounded-xl border-2 border-gray-800 bg-gray-900 p-2 pl-3 text-gray-400"
+						class="mt-2 w-full rounded-xl border-2 border-gray-800 base-color p-2 pl-3 text-gray-400"
 					/>
 					<input
 						type="datetime-local"
 						bind:value={eventDate}
-						class="mt-2 w-full rounded-xl border-2 border-gray-800 bg-gray-900 p-2 pl-3 text-gray-400"
+						class="mt-2 w-full rounded-xl border-2 border-gray-800 base-color p-2 pl-3 text-gray-400"
 					/>
 					<label for="event-file-input" class="sr-only">Choose file</label>
 					<input
@@ -267,12 +267,12 @@
 				<div class="grid grid-cols-2 gap-2">
 					{#each allUsers as user, index}
 						<div class="rounded-xl bg-gray-800 p-5">
-							<p class="text-gray-400">Email: <input type="text" bind:value={allUsers[index].email} class="bg-gray-900 text-gray-400 p-1 rounded" /></p>
-							<p class="text-gray-400">Name: <input type="text" bind:value={allUsers[index].given_name} class="bg-gray-900 text-gray-400 p-1 rounded" /> <input type="text" bind:value={allUsers[index].family_name} class="bg-gray-900 text-gray-400 p-1 rounded" /></p>
-							<p class="text-gray-400">Level: <input type="text" bind:value={allUsers[index].level} class="bg-gray-900 text-gray-400 p-1 rounded" /></p>
-							<p class="text-gray-400">Privileges: <input type="text" bind:value={allUsers[index].privileges} class="bg-gray-900 text-gray-400 p-1 rounded" /></p>
-							<!-- <p class="text-gray-400">Created At: <input type="text" bind:value={allUsers[index].createdAt.$date.$numberLong} class="bg-gray-900 text-gray-400 p-1 rounded" /></p> -->
-							<!-- <p class="text-gray-400">Files: <input type="text" bind:value={allUsers[index].files.join(', ')} class="bg-gray-900 text-gray-400 p-1 rounded" /></p> -->
+							<p class="text-gray-400">Email: <input type="text" bind:value={allUsers[index].email} class="base-color text-gray-400 p-1 rounded" /></p>
+							<p class="text-gray-400">Name: <input type="text" bind:value={allUsers[index].given_name} class="base-color text-gray-400 p-1 rounded" /> <input type="text" bind:value={allUsers[index].family_name} class="base-color text-gray-400 p-1 rounded" /></p>
+							<p class="text-gray-400">Level: <input type="text" bind:value={allUsers[index].level} class="base-color text-gray-400 p-1 rounded" /></p>
+							<p class="text-gray-400">Privileges: <input type="text" bind:value={allUsers[index].privileges} class="base-color text-gray-400 p-1 rounded" /></p>
+							<!-- <p class="text-gray-400">Created At: <input type="text" bind:value={allUsers[index].createdAt.$date.$numberLong} class="base-color text-gray-400 p-1 rounded" /></p> -->
+							<!-- <p class="text-gray-400">Files: <input type="text" bind:value={allUsers[index].files.join(', ')} class="base-color text-gray-400 p-1 rounded" /></p> -->
 						</div>
 					{/each}
 				</div>

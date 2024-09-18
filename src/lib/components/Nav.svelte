@@ -81,7 +81,7 @@
 				</div>
 				<div class="hidden sm:ml-6 sm:block">
 					<div class="flex space-x-4">
-						<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+						<!-- Current: "base-color text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
 						<a
 							href="/"
 							class={active === 'home'
@@ -194,12 +194,12 @@
 	{#if !state}
 		<div class="sm:hidden" id="mobile-menu">
 			<div class="space-y-1 px-2 pb-3 pt-2">
-				<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+				<!-- Current: "base-color text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
 				<a
 					href="/"
 					class={'block rounded-md px-3 py-2 text-base font-medium ' +
 						(active === 'home'
-							? 'bg-gray-900 text-white'
+							? 'base-color text-white'
 							: 'text-gray-300 hover:bg-gray-700 hover:text-white')}
 					aria-current="page">Home</a
 				>
@@ -207,28 +207,28 @@
 					href="/research"
 					class={'block rounded-md px-3 py-2 text-base font-medium ' +
 						(active === 'research'
-							? 'bg-gray-900 text-white'
+							? 'base-color text-white'
 							: 'text-gray-300 hover:bg-gray-700 hover:text-white')}>Research</a
 				>
 				<a
 					href="/calendar"
 					class={'block rounded-md px-3 py-2 text-base font-medium ' +
 						(active === 'calendar'
-							? 'bg-gray-900 text-white'
+							? 'base-color text-white'
 							: 'text-gray-300 hover:bg-gray-700 hover:text-white')}>Calendar</a
 				>
 				<a
 					href="/sponsorships"
 					class={'block rounded-md px-3 py-2 text-base font-medium ' +
 						(active === 'sponsorships'
-							? 'bg-gray-900 text-white'
+							? 'base-color text-white'
 							: 'text-gray-300 hover:bg-gray-700 hover:text-white')}>Sponsorships</a
 				>
 				<a
 					href="/gallery"
 					class={'block rounded-md px-3 py-2 text-base font-medium ' +
 						(active === 'gallery'
-							? 'bg-gray-900 text-white'
+							? 'base-color text-white'
 							: 'text-gray-300 hover:bg-gray-700 hover:text-white')}>Gallery</a
 				>
 			</div>

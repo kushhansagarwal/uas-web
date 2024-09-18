@@ -2,7 +2,7 @@
 	import bp3 from '$lib/assets/bp-3.svg';
 </script>
 
-<div class="relative isolate bg-gray-900 py-24 sm:py-32">
+<div class="relative isolate base-color py-24 sm:py-32">
 	<div
 		class="absolute left-[calc(50%-4rem)] top-10 -z-10 transform-gpu blur-3xl sm:left-[calc(50%-18rem)] lg:left-48 lg:top-[calc(50%-30rem)] xl:left-[calc(50%-24rem)]"
 		aria-hidden="true"

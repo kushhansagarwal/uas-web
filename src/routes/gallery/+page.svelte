@@ -19,7 +19,7 @@
 	});
 </script>
 
-<div class="relative isolate min-h-screen overflow-hidden bg-gray-900">
+<div class="relative isolate min-h-screen overflow-hidden base-color">
 	<Nav {image} active="gallery"></Nav>
 	<svg
 		class="absolute inset-0 -z-10 h-full w-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"

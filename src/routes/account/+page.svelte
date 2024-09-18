@@ -175,7 +175,7 @@
 						<input
 							type="text"
 							bind:value={searchFiles}
-							class="mt-2 w-full flex-grow rounded-xl border-2 border-gray-800 bg-gray-900 p-2 pl-3"
+							class="mt-2 w-full flex-grow rounded-xl border-2 border-gray-800 base-color p-2 pl-3"
 							placeholder="Search for a file"
 						/>
 					</div>

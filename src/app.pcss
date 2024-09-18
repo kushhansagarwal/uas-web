@@ -12,46 +12,52 @@
 	color: red;
 }
 
-.active-nav {
-	@apply bg-gray-900 text-white;
-}
+@layer base {
+	.base-color {
+		@apply bg-[#111]
+	}
 
-.inactive-nav {
-	@apply text-gray-300 hover:bg-gray-700 hover:text-white;
-}
+	.active-nav {
+		@apply text-white;
+	}
 
-.inline-gallery {
-	@apply aspect-[3/2] sm:rounded-md md:rounded-none;
-}
+	.inactive-nav {
+		@apply text-gray-300 hover:bg-gray-700 hover:text-white;
+	}
 
-.contact-options {
-	@apply grid grid-cols-1 gap-2 xss:grid-cols-2 sm:grid-cols-3;
-}
+	.inline-gallery {
+		@apply aspect-[3/2] sm:rounded-md md:rounded-none;
+	}
 
-h2 {
-	@apply text-xl font-bold leading-7 text-white sm:truncate sm:text-3xl sm:tracking-tight;
-}
+	.contact-options {
+		@apply grid grid-cols-1 gap-2 xss:grid-cols-2 sm:grid-cols-3;
+	}
 
-h3 {
-	@apply mb-4 mt-6 text-xl font-bold leading-7 text-white sm:truncate sm:text-2xl sm:tracking-tight;
-}
+	h2 {
+		@apply text-xl font-bold leading-7 text-white sm:truncate sm:text-3xl sm:tracking-tight;
+	}
 
-.button {
-	@apply mt-2 w-full rounded-xl px-4 py-2 font-semibold;
-}
+	h3 {
+		@apply mb-4 mt-6 text-xl font-bold leading-7 text-white sm:truncate sm:text-2xl sm:tracking-tight;
+	}
 
-.button:enabled {
-	@apply bg-indigo-500 text-white hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2;
-}
+	.button {
+		@apply mt-2 w-full rounded-xl px-4 py-2 font-semibold;
+	}
 
-.button:disabled {
-	@apply cursor-not-allowed bg-gray-500 text-gray-300;
-}
+	.button:enabled {
+		@apply bg-indigo-500 text-white hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2;
+	}
 
-.file-input-label {
-	@apply sr-only;
-}
+	.button:disabled {
+		@apply cursor-not-allowed bg-gray-500 text-gray-300;
+	}
 
-.file-input {
-	@apply my-2 block w-full rounded-lg  border-2 border-gray-400 text-sm shadow-sm file:me-4 file:border-0 file:bg-gray-900 file:px-4 file:py-3 file:text-gray-400 focus:z-10 focus:border-indigo-500 focus:ring-indigo-500 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400 dark:file:bg-gray-800 dark:file:text-gray-400;
+	.file-input-label {
+		@apply sr-only;
+	}
+
+	.file-input {
+		@apply file:base-color dark:base-color my-2 block  w-full rounded-lg border-2 border-gray-400 text-sm shadow-sm file:me-4 file:border-0 file:px-4 file:py-3 file:text-gray-400 focus:z-10 focus:border-indigo-500 focus:ring-indigo-500 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:text-gray-400 dark:file:bg-gray-800 dark:file:text-gray-400;
+	}
 }
