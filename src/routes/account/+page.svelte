@@ -54,7 +54,7 @@
 
 	onMount(() => {
 		if (!data.isAuthenticated) {
-			goto('/api/auth/login');
+			goto('/api/auth/register');
 		} else {
 			image = data.user.picture;
 			token = data.token;

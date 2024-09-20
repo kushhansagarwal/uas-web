@@ -14,7 +14,7 @@
 	let token = '';
 	onMount(() => {
 		if (!data.isAuthenticated) {
-			goto('/api/auth/login');
+			goto('/api/auth/register');
 		} else {
 			if (!data.isAdmin) {
 				goto('/');

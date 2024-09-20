@@ -76,7 +76,7 @@
 
     onMount(() => {
         if (!data.isAuthenticated) {
-            goto('/api/auth/login');
+            goto('/api/auth/register');
         } else {
             image = data.user.picture;
         }
@@ -146,7 +146,7 @@
                         {#if eventItem.rsvp}
                             <div class="mt-5">
                                 <a
-                                    href="/api/auth/login"
+                                    href="/api/auth/register"
                                     class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
                                     >RSVP <span aria-hidden="true">→</span></a
                                 >

@@ -10,7 +10,7 @@
 
 		if (!isAuthenticated) {
             localStorage.setItem("file_code", code || "");
-			goto('/api/auth/login');
+			goto('/api/auth/register');
 		} else {
 
             // console.log("logged in now, adding gile with code", code);
