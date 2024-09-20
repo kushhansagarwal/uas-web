@@ -23,11 +23,6 @@ export const POST: RequestHandler = async ({ request }) => {
 			throw new Error('User not found');
 		}
 
-		const isAdmin = user.email === 'kushhansagarwal@gmail.com';
-		if (!isAdmin) {
-			throw new Error('User does not have admin privileges');
-		}
-
 		const credentialsStart = Date.now();
 		const credentials = JSON.parse(GOOGLE_SHEETS_API);
 		// console.log(`Credentials parsing took ${Date.now() - credentialsStart}ms`);
