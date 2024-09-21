@@ -14,6 +14,8 @@
 
 	let authenticated = false;
 	let image: string | null = null;
+	let showOtherMajor = false;
+	let major: string = '';
 
 	export let data;
 
@@ -31,6 +33,17 @@
 			goto(`/file/add/${url}`);
 		}
 	});
+
+	function handleMajorChange(event) {
+		major = event.target.value;
+		showOtherMajor = major === 'Other';
+	}
+
+	let suggestions = [
+		'Aerospace Engineering',
+		'Mechanical Engineering',
+		'Computer Science (CS/CSE/CE)'
+	];
 </script>
 
 <Hero {image}></Hero>
@@ -181,13 +194,18 @@
 						>
 						<div class="mt-2.5">
 							<input
-								type="text"
+								list="majors"
 								name="major"
 								id="major"
-								autocomplete="major"
 								class="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
 								required
+								on:change={handleMajorChange}
 							/>
+							<datalist id="majors">
+								{#each suggestions as suggestion}
+									<option value={suggestion}></option>
+								{/each}
+							</datalist>
 						</div>
 					</div>
 
@@ -291,13 +309,7 @@
 									<label for="flight-software" class="text-white">Flight Software</label>
 								</div>
 								<div class="flex items-center">
-									<input
-										type="checkbox"
-										name="interest"
-										id="vision"
-										value="Vision"
-										class="mr-2"
-									/>
+									<input type="checkbox" name="interest" id="vision" value="Vision" class="mr-2" />
 									<label for="vision" class="text-white">Vision</label>
 								</div>
 							</div>
@@ -377,26 +389,19 @@
 									<label for="discord" class="text-white">Discord</label>
 								</div>
 								<div class="flex items-center">
-									<input
-										type="radio"
-										name="reference"
-										id="other"
-										value="EAF"
-										class="mr-2"
-										required
-									/>
-									<label for="other" class="text-white">Other</label>
+									<input type="radio" name="reference" id="eaf" value="EAF" class="mr-2" required />
+									<label for="eaf" class="text-white">EAF</label>
 								</div>
 								<div class="flex items-center">
 									<input
 										type="radio"
 										name="reference"
-										id="other"
+										id="engineering-fair"
 										value="Engineering Fair"
 										class="mr-2"
 										required
 									/>
-									<label for="other" class="text-white">Other</label>
+									<label for="engineering-fair" class="text-white">Engineering Fair</label>
 								</div>
 							</div>
 						</div>
