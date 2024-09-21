@@ -42,6 +42,8 @@
 	let suggestions = [
 		'Aerospace Engineering',
 		'Mechanical Engineering',
+		'Electrical Engineering',
+		'Materials Science and Engineering',
 		'Computer Science (CS/CSE/CE)'
 	];
 </script>
