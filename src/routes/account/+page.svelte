@@ -116,11 +116,11 @@
 	{#await FilesPromise}
 		<div class="mt-5 grid animate-pulse gap-5 lg:grid-cols-4">
 			<div>
-				<div class="h-96 rounded-xl bg-gray-800 p-5"></div>
+				<div class="h-96 rounded-xl card-color p-5"></div>
 			</div>
 			<div class="lg:col-span-3">
 				<div class="grid gap-5">
-					<div class="h-24 rounded-xl bg-gray-800 p-5"></div>
+					<div class="h-24 rounded-xl card-color p-5"></div>
 				</div>
 			</div>
 		</div>
@@ -128,7 +128,7 @@
 		{#if filesPromiseData}
 			<div class="mt-5 grid gap-5 lg:grid-cols-4">
 				<div>
-					<div class="rounded-xl bg-gray-800 p-5">
+					<div class="rounded-xl card-color p-5">
 						<div class="">
 							<p class="font-bold text-white">Email</p>
 							<p class="text-gray-400">{filesPromiseData.userData.email}</p>
@@ -182,9 +182,9 @@
 
 					<div class="mt-3 grid gap-5">
 						{#each filteredFiles || [] as file}
-							<div class="rounded-xl bg-gray-800 p-5">
+							<div class="rounded-xl card-color p-5">
 								<p class="text-xs text-gray-400">
-									Released {moment(file.createdAt).format('DD MMMM, YYYY')} <span class="font-mono bg-gray-800 p-1 rounded-md text-gray-800 hover:text-gray-400 hover:bg-gray-700 transition-colors duration-300 cursor-pointer">{file.code}</span>
+									Released {moment(file.createdAt).format('DD MMMM, YYYY')} <span class="font-mono card-color p-1 rounded-md text-gray-800 hover:text-gray-400 hover:bg-gray-700 transition-colors duration-300 cursor-pointer">{file.code}</span>
 								</p>
 								<p class="text-xl font-bold text-white">{file.title}</p>
 								<p class="text-gray-400">{file.description}</p>

@@ -200,7 +200,7 @@
 										type="radio"
 										name="year"
 										id="freshman"
-										value="freshman"
+										value="Freshman"
 										class="mr-2"
 										required
 									/>
@@ -211,7 +211,7 @@
 										type="radio"
 										name="year"
 										id="sophomore"
-										value="sophomore"
+										value="Sophomore"
 										class="mr-2"
 										required
 									/>
@@ -222,7 +222,7 @@
 										type="radio"
 										name="year"
 										id="junior"
-										value="junior"
+										value="Junior"
 										class="mr-2"
 										required
 									/>
@@ -233,7 +233,7 @@
 										type="radio"
 										name="year"
 										id="senior"
-										value="senior"
+										value="Senior"
 										class="mr-2"
 										required
 									/>
@@ -244,7 +244,7 @@
 										type="radio"
 										name="year"
 										id="first-year-transfer"
-										value="first-year-transfer"
+										value="First Year Transfer"
 										class="mr-2"
 										required
 									/>
@@ -255,7 +255,7 @@
 										type="radio"
 										name="year"
 										id="second-year-transfer"
-										value="second-year-transfer"
+										value="Second Year Transfer"
 										class="mr-2"
 										required
 									/>
@@ -265,39 +265,40 @@
 						</div>
 					</div>
 					<div class="sm:col-span-2">
-						<label class=" block text-sm font-semibold leading-6 text-white">Research project</label
+						<label class="required block text-sm font-semibold leading-6 text-white"
+							>Interests</label
 						>
 						<div class="mt-2.5">
 							<div class="contact-options">
 								<div class="flex items-center">
 									<input
 										type="checkbox"
-										name="research-project"
-										id="solar-plane"
-										value="solar-plane"
+										name="interest"
+										id="hardware"
+										value="Hardware"
 										class="mr-2"
 									/>
-									<label for="solar-plane" class="text-white">Solar Plane</label>
+									<label for="hardware" class="text-white">Hardware</label>
 								</div>
 								<div class="flex items-center">
 									<input
 										type="checkbox"
-										name="research-project"
-										id="3d-mapping"
-										value="3d-mapping"
+										name="interest"
+										id="flight-software"
+										value="Flight Software"
 										class="mr-2"
 									/>
-									<label for="3d-mapping" class="text-white">3D Mapping</label>
+									<label for="flight-software" class="text-white">Flight Software</label>
 								</div>
 								<div class="flex items-center">
 									<input
 										type="checkbox"
-										name="research-project"
-										id="drone-delivery"
-										value="drone-delivery"
+										name="interest"
+										id="vision"
+										value="Vision"
 										class="mr-2"
 									/>
-									<label for="drone-delivery" class="text-white">Drone Delivery</label>
+									<label for="vision" class="text-white">Vision</label>
 								</div>
 							</div>
 						</div>
@@ -311,9 +312,9 @@
 								<div class="flex items-center">
 									<input
 										type="radio"
-										name="hear-about"
+										name="reference"
 										id="campus-event"
-										value="campus-event"
+										value="Campus Event"
 										class="mr-2"
 										required
 									/>
@@ -322,9 +323,9 @@
 								<div class="flex items-center">
 									<input
 										type="radio"
-										name="hear-about"
+										name="reference"
 										id="ucla-website"
-										value="ucla-website"
+										value="UCLA Website"
 										class="mr-2"
 										required
 									/>
@@ -333,9 +334,9 @@
 								<div class="flex items-center">
 									<input
 										type="radio"
-										name="hear-about"
+										name="reference"
 										id="friends"
-										value="friends"
+										value="Friends"
 										class="mr-2"
 										required
 									/>
@@ -344,9 +345,9 @@
 								<div class="flex items-center">
 									<input
 										type="radio"
-										name="hear-about"
+										name="reference"
 										id="social-media"
-										value="social-media"
+										value="Social Media"
 										class="mr-2"
 										required
 									/>
@@ -356,9 +357,9 @@
 								<div class="flex items-center">
 									<input
 										type="radio"
-										name="hear-about"
+										name="reference"
 										id="aiaa-uas-meeting"
-										value="aiaa-uas-meeting"
+										value="AIAA/UAS Meeting"
 										class="mr-2"
 										required
 									/>
@@ -367,9 +368,9 @@
 								<div class="flex items-center">
 									<input
 										type="radio"
-										name="hear-about"
+										name="reference"
 										id="discord"
-										value="discord"
+										value="Discord"
 										class="mr-2"
 										required
 									/>
@@ -378,9 +379,20 @@
 								<div class="flex items-center">
 									<input
 										type="radio"
-										name="hear-about"
+										name="reference"
 										id="other"
-										value="other"
+										value="EAF"
+										class="mr-2"
+										required
+									/>
+									<label for="other" class="text-white">Other</label>
+								</div>
+								<div class="flex items-center">
+									<input
+										type="radio"
+										name="reference"
+										id="other"
+										value="Engineering Fair"
 										class="mr-2"
 										required
 									/>
@@ -395,7 +407,7 @@
 						>
 						<div class="mt-2.5">
 							<textarea
-								name="questions-comments"
+								name="comments"
 								id="questions-comments"
 								rows="4"
 								class="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"

@@ -130,7 +130,7 @@
 			</h2>
 			<p class="mt-2 text-gray-400">This is the admin page. Here you can manage the website.</p>
 			<div class="mt-5 grid grid-cols-2 gap-5">
-				<div class=" rounded-xl bg-gray-800 p-5">
+				<div class=" rounded-xl card-color p-5">
 					<p class="text-md mb-2 font-bold text-gray-400">Upload a file</p>
 					<div class="grid grid-cols-2 gap-2">
 						<input
@@ -189,7 +189,7 @@
 					{/if}
 				</div>
 
-				<div class=" rounded-xl bg-gray-800 p-5">
+				<div class=" rounded-xl card-color p-5">
 					<p class="text-md mb-2 font-bold text-gray-400">Create an event</p>
 					<div class="grid grid-cols-2 gap-2">
 						<input

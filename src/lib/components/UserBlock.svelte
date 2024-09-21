@@ -27,7 +27,7 @@
 
 
 
-<div class="rounded-xl bg-gray-800 p-5">
+<div class="rounded-xl card-color p-5">
     <p class="text-gray-400">Email: <input type="text" bind:value={user.email} class="base-color text-gray-400 p-1 rounded" /></p>
     <p class="text-gray-400">Name: <input type="text" bind:value={user.given_name} class="base-color text-gray-400 p-1 rounded" /> <input type="text" bind:value={user.family_name} class="base-color text-gray-400 p-1 rounded" /></p>
     <p class="text-gray-400">Level: <input type="text" bind:value={user.level} class="base-color text-gray-400 p-1 rounded" /></p>

@@ -4,33 +4,31 @@ import clientPromise from '$lib/mongodb';
 export const actions = {
 	contact: async (event) => {
 		const formData = await event.request.formData();
-		const values = [];
-		let researchProjects = [];
-
-		for (const [key, value] of formData.entries()) {
-			if (key === 'research-project') {
-				researchProjects.push(value);
-			} else {
-				values.push(value);
-			}
-		}
-
-		if (researchProjects.length > 0) {
-			values.push(researchProjects.join(', '));
+		let interest = formData.getAll('interest');
+		if (interest.length === 1) {
+			interest = interest[0] as string;
 		}
 
 		const db = await clientPromise;
+		const userCollection = db.db('website').collection('users');
+		const user = await userCollection.findOne({ email: formData.get('email') });
+
+		const data = {
+			name: formData.get('name'),
+			email: formData.get('email'),
+			major: formData.get('major'),
+			year: formData.get('year'),
+			interest: interest,
+			reference: formData.get('reference'),
+			comments: formData.get('comments'),
+			createdAt: new Date(),
+			hasAccount: !!user
+		};
+
 		const collection = db.db('website').collection('interests');
 
 		try {
-			const email = values[1]; // Assuming the email is the second value in the array
-			const userCollection = db.db('website').collection('users'); // Assuming there's a users collection
-			const user = await userCollection.findOne({ email: email });
-
-			await collection.insertOne({
-				data: values,
-				createdAt: new Date()
-			});
+			await collection.insertOne(data);
 
 			if (user) {
 				return { success: true, message: 'Your account has been updated with this information!' };

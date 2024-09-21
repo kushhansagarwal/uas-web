@@ -13,7 +13,7 @@
 	export let sponsor: Sponsor;
 </script>
 
-<div class="overflow-hidden rounded-lg border border-gray-800 base-color p-8 transition-transform duration-300 hover:scale-105 hover:bg-gray-800">
+<div class="overflow-hidden rounded-lg border border-gray-800 base-color p-8 transition-transform duration-300 hover:scale-105 hover:card-color">
 	<div class="">
 		<div class="grid grid-cols-1 opacity-80 hover:opacity-100">
 			<div class="flex items-center justify-center">
