@@ -88,16 +88,17 @@
 				Welcome <span class="gradient-text">{data.user.given_name}</span>,
 			</h2>
 			<p class="mt-2 text-gray-400">
-				This is the interest page. Here you can manage the interests.
+				This is the interest page. Here you can manage all the interest form submissions. Copy the
+				emails of the students you want to send a message to by filtering the table below.
 			</p>
 		</div>
 	</div>
 	<div>
-		<div class="mb-5 mt-10 rounded-lg card-color p-5">
-			<div class="mb-5">
+		<div class="card-color my-5 rounded-lg p-5">
+			<div class="mb-2">
 				<select
 					bind:value={filter.major}
-					class="mt-1 block w-full rounded-md border-gray-300 p-2 text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 "
+					class="mt-1 block w-full rounded-md border-gray-300 p-2 text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
 				>
 					<option value="">All Majors</option>
 					{#each majors as major}
@@ -105,10 +106,10 @@
 					{/each}
 				</select>
 			</div>
-			<div class="mb-5">
+			<div class="mb-2">
 				<select
 					bind:value={filter.year}
-					class="mt-1 block w-full rounded-md border-gray-300 p-2 text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 "
+					class="mt-1 block w-full rounded-md border-gray-300 p-2 text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
 				>
 					<option value="">All Years</option>
 					{#each years as year}
@@ -116,10 +117,10 @@
 					{/each}
 				</select>
 			</div>
-			<div class="mb-5">
+			<div class="mb-2">
 				<select
 					bind:value={filter.interest}
-					class="mt-1 block w-full rounded-md border-gray-300 p-2 text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 "
+					class="mt-1 block w-full rounded-md border-gray-300 p-2 text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
 				>
 					<option value="">All Interests</option>
 					{#each interestOptions as interest}
@@ -127,10 +128,10 @@
 					{/each}
 				</select>
 			</div>
-			<div class="mb-5">
+			<div class="mb-2">
 				<select
 					bind:value={filter.hasAccount}
-					class="mt-1 block w-full rounded-md border-gray-300 p-2 text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 "
+					class="mt-1 block w-full rounded-md border-gray-300 p-2 text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
 				>
 					<option value="">All Account Statuses</option>
 					<option value="true">Has Account</option>
