@@ -1,5 +1,10 @@
 import clientPromise from '$lib/mongodb';
 
+export const load = async ({ locals }) => {
+	const { user } = locals;
+	return { user };
+};
+
 /** @type {import('./$types').Actions} */
 export const actions = {
 	contact: async (event) => {

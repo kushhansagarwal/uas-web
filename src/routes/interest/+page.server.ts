@@ -7,7 +7,8 @@ export async function load({ locals, url }: RequestEvent) {
 
 	// Check if the user is authenticated
 	if (!isAuthenticated) {
-		throw redirect(302, '/api/auth/register'); // Redirect to register page if not authenticated
+		const redirectTo = encodeURIComponent(url.pathname);
+		throw redirect(302, `/api/auth/register?redirectTo=${redirectTo}`); // Redirect to register page if not authenticated
 	}
 
 	const db = await clientPromise;
@@ -23,9 +24,14 @@ export async function load({ locals, url }: RequestEvent) {
 	const interests = await interestsCollection.find({}).toArray();
 
 	// Convert ObjectId and createdAt to string
-	const serializableInterests = interests.map(interest => ({
-		...interest,
-		_id: interest._id.toString(),
+	const serializableInterests = await Promise.all(interests.map(async (interest) => {
+		const emailPrefix = interest.email.split('@')[0]; // Get the part before '@'
+		const userWithInterest = await usersCollection.findOne({ email: { $regex: new RegExp(`^${emailPrefix}`) } });
+		return {
+			...interest,
+			_id: interest._id.toString(),
+			hasAccount: !!userWithInterest // Set hasAccount to true if the user exists in the users collection
+		};
 	}));
 
 	return {

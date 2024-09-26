@@ -147,6 +147,8 @@
 			>
 		</div>
 
+		<p class="mb-3 text-gray-400">{filteredInterests.length} interests found</p>
+
 		<ul>
 			{#each filteredInterests as interest}
 				<div class="card-color mb-4 rounded-lg p-4 shadow-lg">
