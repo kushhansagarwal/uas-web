@@ -11,6 +11,7 @@
 
 	export let data: PageData;
 	let image: string | null = null;
+	let selectedSubteam = '';
 
 	let token = '';
 	onMount(() => {
@@ -265,19 +266,53 @@
 				<p class="text-md mb-2 font-bold text-gray-400">All Users</p>
 				<div class="mb-4">
 					<textarea
+						id="all-users-textarea"
 						class="w-full rounded-md border-gray-300 p-2 text-gray-700 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
 						rows="4"
 						readonly
 					>{allUsers.filter(user => !user.interestForm).map(user => user.email).join('; ')}</textarea>
 					<button
 						on:click={() => {
-							const textarea = document.querySelector('textarea');
-							textarea.select();
-							document.execCommand('copy');
+							const textarea = document.getElementById('all-users-textarea');
+							if (textarea) {
+								textarea.select();
+								document.execCommand('copy');
+							}
 						}}
 						class="mt-2 rounded-md bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700"
 					>Copy Emails</button>
 				</div>
+				<div class="mb-4">
+					<select
+						bind:value={selectedSubteam}
+						class="mt-1 block w-full rounded-md border-gray-300 p-2 text-gray-700 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+					>
+						<option value="">Select Subteam</option>
+						{#each ['Airframe & CAD', 'Electronics', 'Flight Control', 'Manufacturing', 'Outreach', 'Pilots & Operations', 'Vision', 'Ground & Communications'] as team}
+							<option value={team}>{team}</option>
+						{/each}
+					</select>
+				</div>
+				{#if selectedSubteam}
+					<div class="mb-4">
+						<textarea
+							id="subteam-users-textarea"
+							class="w-full rounded-md border-gray-300 p-2 text-gray-700 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+							rows="4"
+							readonly
+						>{allUsers.filter(user => user.subteam && user.subteam.includes(selectedSubteam)).map(user => user.email).join('; ')}</textarea>
+						<button
+							on:click={() => {
+								const textarea = document.getElementById('subteam-users-textarea');
+								if (textarea) {
+									textarea.select();
+									document.execCommand('copy');
+								}
+							}}
+							class="mt-2 rounded-md bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700"
+						>Copy Emails</button>
+					</div>
+				{/if}
 				<div class="grid grid-cols-2 gap-2">
 					{#each allUsers as user}
 						<UserBlock {user} {token} />
