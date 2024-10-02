@@ -263,6 +263,21 @@
 
 			<div class="mt-10">
 				<p class="text-md mb-2 font-bold text-gray-400">All Users</p>
+				<div class="mb-4">
+					<textarea
+						class="w-full rounded-md border-gray-300 p-2 text-gray-700 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+						rows="4"
+						readonly
+					>{allUsers.filter(user => !user.interestForm).map(user => user.email).join('; ')}</textarea>
+					<button
+						on:click={() => {
+							const textarea = document.querySelector('textarea');
+							textarea.select();
+							document.execCommand('copy');
+						}}
+						class="mt-2 rounded-md bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700"
+					>Copy Emails</button>
+				</div>
 				<div class="grid grid-cols-2 gap-2">
 					{#each allUsers as user}
 						<UserBlock {user} {token} />

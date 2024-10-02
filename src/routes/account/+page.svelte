@@ -13,6 +13,8 @@
 
 	let FilesPromise: Promise<any>;
 
+	let subteam: string | null = null;
+
 	interface FilesPromiseData {
 		userData: {
 			email: string;
@@ -21,6 +23,7 @@
 			level: string;
 			privileges: string;
 			created: string;
+			subteam?: string;
 		};
 		files: Array<{
 			_id: string;
@@ -92,8 +95,9 @@
 					body: JSON.stringify({ email: data.user.email })
 				}).then(async (res) => {
 					const jsonData = await res.json();
+					subteam = jsonData.userData.subteam;
 					filesPromiseData = jsonData;
-					// console.log(filesPromiseData);
+					console.log(filesPromiseData);
 				});
 			}
 		}
@@ -116,11 +120,11 @@
 	{#await FilesPromise}
 		<div class="mt-5 grid animate-pulse gap-5 lg:grid-cols-4">
 			<div>
-				<div class="h-96 rounded-xl card-color p-5"></div>
+				<div class="card-color h-96 rounded-xl p-5"></div>
 			</div>
 			<div class="lg:col-span-3">
 				<div class="grid gap-5">
-					<div class="h-24 rounded-xl card-color p-5"></div>
+					<div class="card-color h-24 rounded-xl p-5"></div>
 				</div>
 			</div>
 		</div>
@@ -128,7 +132,7 @@
 		{#if filesPromiseData}
 			<div class="mt-5 grid gap-5 lg:grid-cols-4">
 				<div>
-					<div class="rounded-xl card-color p-5">
+					<div class="card-color rounded-xl p-5">
 						<div class="">
 							<p class="font-bold text-white">Email</p>
 							<p class="text-gray-400">{filesPromiseData.userData.email}</p>
@@ -138,6 +142,7 @@
 							<p class="text-gray-400">
 								{moment(filesPromiseData.userData.created).format('DD MMMM, YYYY')}
 							</p>
+
 							<p class="text-xs text-gray-600">
 								{(() => {
 									const duration = moment.duration(
@@ -166,6 +171,32 @@
 								<p class="text-gray-400">{filesPromiseData.userData.privileges}</p>
 							</div>
 						{/if}
+						<div class="mt-5">
+							<p class="mb-2 font-bold text-white">Subteam</p>
+							<select
+								bind:value={subteam}
+								on:change={() => {
+									fetch('/api/account/subteam/add', {
+										method: 'POST',
+										headers: {
+											'Content-Type': 'application/json',
+											Authorization: `Bearer ${token}`
+										},
+										body: JSON.stringify({ subteam })
+									});
+								}}
+								class="rounded-md p-1 text-gray-600"
+							>
+								<option value="" disabled selected>Select a subteam</option>
+								<option value="Airframe & CAD">Airframe & CAD</option>
+								<option value="Electronics">Electronics</option>
+								<option value="Flight Software">Flight Software</option>
+								<option value="Manufacturing">Manufacturing</option>
+								<option value="Outreach">Outreach</option>
+								<option value="Pilots & Operations">Pilots & Operations</option>
+								<option value="Vision">Vision</option>
+							</select>
+						</div>
 					</div>
 				</div>
 				<div class="lg:col-span-3">
@@ -175,16 +206,20 @@
 						<input
 							type="text"
 							bind:value={searchFiles}
-							class="mt-2 w-full flex-grow rounded-xl border-2 border-gray-800 base-color p-2 pl-3"
+							class="base-color mt-2 w-full flex-grow rounded-xl border-2 border-gray-800 p-2 pl-3"
 							placeholder="Search for a file"
 						/>
 					</div>
 
 					<div class="mt-3 grid gap-5">
 						{#each filteredFiles || [] as file}
-							<div class="rounded-xl card-color p-5">
+							<div class="card-color rounded-xl p-5">
 								<p class="text-xs text-gray-400">
-									Released {moment(file.createdAt).format('DD MMMM, YYYY')} <span class="font-mono card-color p-1 rounded-md text-gray-800 hover:text-gray-400 hover:bg-gray-700 transition-colors duration-300 cursor-pointer">{file.code}</span>
+									Released {moment(file.createdAt).format('DD MMMM, YYYY')}
+									<span
+										class="card-color cursor-pointer rounded-md p-1 font-mono text-gray-800 transition-colors duration-300 hover:bg-gray-700 hover:text-gray-400"
+										>{file.code}</span
+									>
 								</p>
 								<p class="text-xl font-bold text-white">{file.title}</p>
 								<p class="text-gray-400">{file.description}</p>

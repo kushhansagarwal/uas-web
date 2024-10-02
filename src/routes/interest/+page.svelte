@@ -23,14 +23,15 @@
 	let filter = {
 		major: '',
 		year: '',
-		interest: '',
-		hasAccount: ''
+		hasAccount: '',
+		exclusive: false
 	};
 
 	let majors: string[] = [];
 	let years: string[] = [];
 	let interestOptions: string[] = [];
 	let accountStatuses = ['true', 'false'];
+	let selectedInterests: string[] = [];
 
 	onMount(() => {
 		if (!data.isAuthenticated) {
@@ -70,7 +71,11 @@
 	$: filteredInterests = interests.filter((interest) => {
 		const majorMatch = filter.major ? interest.major === filter.major : true;
 		const yearMatch = filter.year ? interest.year === filter.year : true;
-		const interestMatch = filter.interest ? interest.interest.includes(filter.interest) : true;
+		const interestMatch = filter.exclusive
+			? selectedInterests.every((selected) => interest.interest.includes(selected)) && selectedInterests.length === interest.interest.length
+			: selectedInterests.length > 0
+			? selectedInterests.some((selected) => interest.interest.includes(selected))
+			: true;
 		const hasAccountMatch = filter.hasAccount
 			? interest.hasAccount.toString() === filter.hasAccount
 			: true;
@@ -118,15 +123,18 @@
 				</select>
 			</div>
 			<div class="mb-2">
-				<select
-					bind:value={filter.interest}
-					class="mt-1 block w-full rounded-md border-gray-300 p-2 text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-				>
-					<option value="">All Interests</option>
+				<div class="flex flex-wrap">
 					{#each interestOptions as interest}
-						<option value={interest}>{interest}</option>
+						<label class="mr-4">
+							<input
+								type="checkbox"
+								bind:group={selectedInterests}
+								value={interest}
+							/>
+							{interest}
+						</label>
 					{/each}
-				</select>
+				</div>
 			</div>
 			<div class="mb-2">
 				<select
@@ -137,6 +145,15 @@
 					<option value="true">Has Account</option>
 					<option value="false">No Account</option>
 				</select>
+			</div>
+			<div class="mb-2">
+				<label>
+					<input
+						type="checkbox"
+						bind:checked={filter.exclusive}
+					/>
+					Exclusive Interests
+				</label>
 			</div>
 			<button
 				type="button"

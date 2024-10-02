@@ -37,7 +37,8 @@ export const POST: RequestHandler = async ({ request }) => {
 						familyName: user.family_name, // Assuming user document has family_name
 						level: user.level, // Assuming user document has level
 						privileges: user.privileges, // Assuming user document has privileges
-						created: user.createdAt // Assuming user document has createdAt
+						created: user.createdAt, // Assuming user document has createdAt
+						subteam: user.subteam
 					},
 					// users: allUsers,
 					files: matchingFiles
