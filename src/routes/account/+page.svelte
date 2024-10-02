@@ -13,7 +13,7 @@
 
 	let FilesPromise: Promise<any>;
 
-	let subteam: string | null = null;
+	let subteam: [string] | null = null;
 
 	interface FilesPromiseData {
 		userData: {
@@ -23,7 +23,7 @@
 			level: string;
 			privileges: string;
 			created: string;
-			subteam?: string;
+			subteam?: [string];
 		};
 		files: Array<{
 			_id: string;
@@ -173,29 +173,29 @@
 						{/if}
 						<div class="mt-5">
 							<p class="mb-2 font-bold text-white">Subteam</p>
-							<select
-								bind:value={subteam}
-								on:change={() => {
-									fetch('/api/account/subteam/add', {
-										method: 'POST',
-										headers: {
-											'Content-Type': 'application/json',
-											Authorization: `Bearer ${token}`
-										},
-										body: JSON.stringify({ subteam })
-									});
-								}}
-								class="rounded-md p-1 text-gray-600"
-							>
-								<option value="" disabled selected>Select a subteam</option>
-								<option value="Airframe & CAD">Airframe & CAD</option>
-								<option value="Electronics">Electronics</option>
-								<option value="Flight Software">Flight Software</option>
-								<option value="Manufacturing">Manufacturing</option>
-								<option value="Outreach">Outreach</option>
-								<option value="Pilots & Operations">Pilots & Operations</option>
-								<option value="Vision">Vision</option>
-							</select>
+							<div class="rounded-md p-1 text-gray-600">
+								{#each ['Airframe & CAD', 'Electronics', 'Flight Software', 'Manufacturing', 'Outreach', 'Pilots & Operations', 'Vision'] as team}
+									<div>
+										<input
+											type="checkbox"
+											id={team}
+											value={team}
+											bind:group={subteam}
+											on:change={() => {
+												fetch('/api/account/subteam/add', {
+													method: 'POST',
+													headers: {
+														'Content-Type': 'application/json',
+														Authorization: `Bearer ${token}`
+													},
+													body: JSON.stringify({ subteam })
+												});
+											}}
+										/>
+										<label for={team} class="ml-2 text-gray-400">{team}</label>
+									</div>
+								{/each}
+							</div>
 						</div>
 					</div>
 				</div>
