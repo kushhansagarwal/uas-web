@@ -305,10 +305,10 @@
 										type="checkbox"
 										name="interest"
 										id="flight-software"
-										value="Flight Software"
+										value="Flight Control"
 										class="mr-2"
 									/>
-									<label for="flight-software" class="text-white">Flight Software</label>
+									<label for="flight-software" class="text-white">Flight Control</label>
 								</div>
 								<div class="flex items-center">
 									<input type="checkbox" name="interest" id="vision" value="Vision" class="mr-2" />

@@ -172,9 +172,9 @@
 							</div>
 						{/if}
 						<div class="mt-5">
-							<p class="mb-2 font-bold text-white">Subteam</p>
+							<p class="mb-2 font-bold text-white">Subteams</p>
 							<div class="rounded-md p-1 text-gray-600">
-								{#each ['Airframe & CAD', 'Electronics', 'Flight Software', 'Manufacturing', 'Outreach', 'Pilots & Operations', 'Vision'] as team}
+								{#each ['Airframe & CAD', 'Electronics', 'Flight Control', 'Manufacturing', 'Outreach', 'Pilots & Operations', 'Vision'] as team}
 									<div>
 										<input
 											type="checkbox"
