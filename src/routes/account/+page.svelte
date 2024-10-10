@@ -174,7 +174,7 @@
 						<div class="mt-5">
 							<p class="mb-2 font-bold text-white">Subteams</p>
 							<div class="rounded-md p-1 text-gray-600">
-								{#each ['Airframe & CAD', 'Electronics', 'Flight Control', 'Manufacturing', 'Outreach', 'Pilots & Operations', 'Vision', 'Ground & Communications'] as team}
+								{#each ['Airframe & CAD', 'Electronics', 'Flight Control', 'Manufacturing', 'Outreach', 'R&D', 'Pilots & Operations', 'Vision', 'Ground & Communications'] as team}
 									<div>
 										<input
 											type="checkbox"
@@ -197,8 +197,23 @@
 								{/each}
 							</div>
 						</div>
+						<div class="mt-5">
+							<p class="font-bold text-white">Links</p>
+							<div class="rounded-md text-gray-600">
+								{#if filesPromiseData.links}
+									{#each filesPromiseData.links as link}
+										<div class="mt-2">
+											<p class="text-xl font-bold text-white">{link.title}</p>
+											<p class="text-gray-400">{link.description}</p>
+											<a href={link.link} target="_blank" class="text-blue-500">Visit Link</a>
+										</div>
+									{/each}
+								{/if}
+							</div>
+						</div>
 					</div>
 				</div>
+
 				<div class="lg:col-span-3">
 					<p class=" text-gray-400">These are the files you have access to.</p>
 

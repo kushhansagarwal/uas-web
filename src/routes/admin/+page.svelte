@@ -28,12 +28,22 @@
 	});
 
 	let file: File | null = null;
-	let code = Array.from({ length: 10 }, () =>
+	let fileCode = Array.from({ length: 10 }, () =>
 		Math.random().toString(36).toUpperCase().charAt(2)
 	).join('');
-	let title = '';
-	let description = '';
-	let uploadStatus: 'idle' | 'uploading' | 'success' | 'error' = 'idle';
+	let fileTitle = '';
+	let fileDescription = '';
+	let fileUploadStatus: 'idle' | 'uploading' | 'success' | 'error' = 'idle';
+
+	let link = '';
+	let linkCode = Array.from({ length: 10 }, () =>
+		Math.random().toString(36).toUpperCase().charAt(2)
+	).join('');
+	let linkTitle = '';
+	let linkDescription = '';
+	let linkPublic = false;
+	let linkUploadStatus: 'idle' | 'uploading' | 'success' | 'error' = 'idle';
+
 	let allUsers: {
 		_id: { $oid: string };
 		email: string;
@@ -46,16 +56,16 @@
 	}[] = [];
 
 	async function handleFileUpload() {
-		if (file && code && title && description) {
+		if (file && fileCode && fileTitle && fileDescription) {
 			const formData = new FormData();
 			formData.append('file', file);
 			formData.append('email', data.user.email);
-			formData.append('code', code);
-			formData.append('title', title);
-			formData.append('description', description);
+			formData.append('code', fileCode);
+			formData.append('title', fileTitle);
+			formData.append('description', fileDescription);
 
 			try {
-				uploadStatus = 'uploading';
+				fileUploadStatus = 'uploading';
 				const response = await fetch('/api/account/file', {
 					method: 'POST',
 					body: formData,
@@ -65,15 +75,49 @@
 				});
 				if (response.ok) {
 					// console.log('File uploaded successfully');
-					uploadStatus = 'success';
+					fileUploadStatus = 'success';
 					// Optionally, refresh the file list
 				} else {
 					console.error('File upload failed');
-					uploadStatus = 'error';
+					fileUploadStatus = 'error';
 				}
 			} catch (error) {
 				console.error('Error uploading file:', error);
-				uploadStatus = 'error';
+				fileUploadStatus = 'error';
+			}
+		}
+	}
+
+	async function handleLinkUpload() {
+		if (link && linkCode && linkTitle && linkDescription) {
+			const formData = new FormData();
+			formData.append('link', link);
+			formData.append('public', linkPublic.toString());
+			formData.append('email', data.user.email);
+			formData.append('code', linkCode);
+			formData.append('title', linkTitle);
+			formData.append('description', linkDescription);
+
+			try {
+				linkUploadStatus = 'uploading';
+				const response = await fetch('/api/account/link', {
+					method: 'POST',
+					body: formData,
+					headers: {
+						Authorization: `Bearer ${token}`
+					}
+				});
+				if (response.ok) {
+					// console.log('Link uploaded successfully');
+					linkUploadStatus = 'success';
+					// Optionally, refresh the link list
+				} else {
+					console.error('Link upload failed');
+					linkUploadStatus = 'error';
+				}
+			} catch (error) {
+				console.error('Error uploading link:', error);
+				linkUploadStatus = 'error';
 			}
 		}
 	}
@@ -136,20 +180,20 @@
 					<div class="grid grid-cols-2 gap-2">
 						<input
 							type="text"
-							bind:value={code}
+							bind:value={fileCode}
 							placeholder="Code"
 							class=" base-color w-full rounded-xl border-2 border-gray-800 p-2 pl-3 font-mono text-gray-400"
 						/>
 						<input
 							type="text"
-							bind:value={title}
+							bind:value={fileTitle}
 							placeholder="Title"
 							class=" base-color w-full rounded-xl border-2 border-gray-800 p-2 pl-3 text-gray-400"
 						/>
 					</div>
 					<input
 						type="text"
-						bind:value={description}
+						bind:value={fileDescription}
 						placeholder="Description"
 						class="base-color mt-2 w-full rounded-xl border-2 border-gray-800 p-2 pl-3 text-gray-400"
 					/>
@@ -165,26 +209,89 @@
 						on:click={handleFileUpload}
 						class="button"
 						disabled={!file ||
-							!code ||
-							!title ||
-							!description ||
-							uploadStatus == 'uploading' ||
-							uploadStatus == 'success'}>Upload</button
+							!fileCode ||
+							!fileTitle ||
+							!fileDescription ||
+							fileUploadStatus == 'uploading' ||
+							fileUploadStatus == 'success'}>Upload</button
 					>
-					{#if uploadStatus !== 'idle'}
+					{#if fileUploadStatus !== 'idle'}
 						<div class="mt-2">
 							<p
-								class={uploadStatus === 'uploading'
+								class={fileUploadStatus === 'uploading'
 									? 'text-gray-400'
-									: uploadStatus === 'success'
+									: fileUploadStatus === 'success'
 										? 'text-green-400'
 										: 'text-red-400'}
 							>
-								{uploadStatus === 'uploading'
+								{fileUploadStatus === 'uploading'
 									? 'Uploading...'
-									: uploadStatus === 'success'
+									: fileUploadStatus === 'success'
 										? 'File uploaded successfully!'
 										: 'Error uploading file.'}
+							</p>
+						</div>
+					{/if}
+				</div>
+
+				<div class=" rounded-xl card-color p-5">
+					<p class="text-md mb-2 font-bold text-gray-400">Upload a link</p>
+					<div class="grid grid-cols-2 gap-2">
+						<input
+							type="text"
+							bind:value={linkCode}
+							placeholder="Code"
+							class=" base-color w-full rounded-xl border-2 border-gray-800 p-2 pl-3 font-mono text-gray-400"
+						/>
+						<input
+							type="text"
+							bind:value={linkTitle}
+							placeholder="Title"
+							class=" base-color w-full rounded-xl border-2 border-gray-800 p-2 pl-3 text-gray-400"
+						/>
+					</div>
+					<input
+						type="text"
+						bind:value={linkDescription}
+						placeholder="Description"
+						class="base-color mt-2 w-full rounded-xl border-2 border-gray-800 p-2 pl-3 text-gray-400"
+					/>
+					<div class="mt-2">
+						<label class="text-gray-400">
+							<input type="checkbox" bind:checked={linkPublic} />
+							<span class="ml-2">Public</span>
+						</label>
+					</div>
+					<input
+						type="text"
+						bind:value={link}
+						placeholder="Link"
+						class="base-color mt-2 w-full rounded-xl border-2 border-gray-800 p-2 pl-3 text-gray-400"
+					/>
+					<button
+						on:click={handleLinkUpload}
+						class="button"
+						disabled={!link ||
+							!linkCode ||
+							!linkTitle ||
+							!linkDescription ||
+							linkUploadStatus == 'uploading' ||
+							linkUploadStatus == 'success'}>Upload</button
+					>
+					{#if linkUploadStatus !== 'idle'}
+						<div class="mt-2">
+							<p
+								class={linkUploadStatus === 'uploading'
+									? 'text-gray-400'
+									: linkUploadStatus === 'success'
+										? 'text-green-400'
+										: 'text-red-400'}
+							>
+								{linkUploadStatus === 'uploading'
+									? 'Uploading...'
+									: linkUploadStatus === 'success'
+										? 'Link uploaded successfully!'
+										: 'Error uploading link.'}
 							</p>
 						</div>
 					{/if}
@@ -288,7 +395,7 @@
 						class="mt-1 block w-full rounded-md border-gray-300 p-2 text-gray-700 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
 					>
 						<option value="">Select Subteam</option>
-						{#each ['Airframe & CAD', 'Electronics', 'Flight Control', 'Manufacturing', 'Outreach', 'Pilots & Operations', 'Vision', 'Ground & Communications'] as team}
+						{#each ['Airframe & CAD', 'Electronics', 'Flight Control', 'Manufacturing', 'Outreach', 'R&D', 'Pilots & Operations', 'Vision', 'Ground & Communications'] as team}
 							<option value={team}>{team}</option>
 						{/each}
 					</select>

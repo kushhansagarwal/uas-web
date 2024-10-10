@@ -23,6 +23,9 @@ export const POST: RequestHandler = async ({ request }) => {
 			return new Response('User not found', { status: 404 });
 		}
 
+		const linksCollection = db.db('website').collection('links');
+		const links = await linksCollection.find({ public: true }).toArray();
+
 		// console.log(user.privileges);
 
 		if (user.privileges === 'Admin') {
@@ -41,7 +44,8 @@ export const POST: RequestHandler = async ({ request }) => {
 						subteam: user.subteam
 					},
 					// users: allUsers,
-					files: matchingFiles
+					files: matchingFiles,
+					links: links
 				}),
 				{
 					status: 200,
@@ -65,7 +69,8 @@ export const POST: RequestHandler = async ({ request }) => {
 						privileges: user.privileges, // Assuming user document has privileges
 						created: user.createdAt // Assuming user document has createdAt
 					},
-					files: matchingFiles
+					files: matchingFiles,
+					links: links
 				}),
 				{
 					status: 200,
