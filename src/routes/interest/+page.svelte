@@ -64,7 +64,7 @@
 			majors = [...new Set(interests.map((interest) => interest.major))];
 			years = [...new Set(interests.map((interest) => interest.year))];
 			interestOptions = [...new Set(interests.flatMap((interest) => interest.interest))];
-			console.log(interests);
+			// console.log(interests);
 		}
 	});
 

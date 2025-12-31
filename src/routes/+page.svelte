@@ -69,7 +69,7 @@
 					>
 						<defs>
 							<pattern
-								id="54f88622-e7f8-4f1d-aaf9-c2f5e46dd1f2"
+								id="contact-pattern"
 								width="200"
 								height="200"
 								x="100%"
@@ -79,14 +79,14 @@
 								<path d="M130 200V.5M.5 .5H200" fill="none" />
 							</pattern>
 						</defs>
-						<svg x="100%" y="-1" class="overflow-visible fill-gray-800/20">
+						<g class="fill-gray-800/20">
 							<path d="M-470.5 0h201v201h-201Z" stroke-width="0" />
-						</svg>
+						</g>
 						<rect
 							width="100%"
 							height="100%"
 							stroke-width="0"
-							fill="url(#54f88622-e7f8-4f1d-aaf9-c2f5e46dd1f2)"
+							fill="url(#contact-pattern)"
 						/>
 					</svg>
 					<div

@@ -14,7 +14,7 @@
     interface EventItem {
         _id: string;
         title: string;
-        date: string | null;
+        date: string;
         description: string;
         location: string;
         image: string;
@@ -83,7 +83,7 @@
     >
         <defs>
             <pattern
-                id="983e3e4c-de6d-4c3f-8d64-b9761d1534cc"
+                id="calendar-pattern"
                 width="200"
                 height="200"
                 x="50%"
@@ -93,17 +93,17 @@
                 <path d="M.5 200V.5H200" fill="none" />
             </pattern>
         </defs>
-        <svg x="50%" y="-1" class="overflow-visible fill-gray-800/20">
+        <g class="fill-gray-800/20">
             <path
                 d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
                 stroke-width="0"
             />
-        </svg>
+        </g>
         <rect
             width="100%"
             height="100%"
             stroke-width="0"
-            fill="url(#983e3e4c-de6d-4c3f-8d64-b9761d1534cc)"
+            fill="url(#calendar-pattern)"
         />
     </svg>
     <div class="mx-auto mt-10 max-w-7xl px-5 md:flex md:items-center md:justify-between lg:px-8">
@@ -124,7 +124,7 @@
                 {#each events as eventItem}
                     <li>
                         <img
-                            class="aspect-[3/2] w-full rounded-2xl object-cover"
+                            class="aspect-[1/1] w-full rounded-2xl object-cover"
                             src={eventItem.image}
                             alt=""
                         />
@@ -134,7 +134,7 @@
                             </h3>
                         </div>
                         <p class="text-base mt-0 leading-7 text-gray-500">{moment(eventItem.date).format('D MMMM, h A')}</p>
-                        <p class="mt-2 text-base leading-7 text-gray-300">{eventItem.description}</p>
+                        <!-- <p class="mt-2 text-base leading-7 text-gray-300">{eventItem.description}</p> -->
                         {#if eventItem.rsvp}
                             <div class="mt-5">
                                 <a

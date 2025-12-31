@@ -24,6 +24,11 @@
 			privileges: string;
 			created: string;
 			subteam?: [string];
+			links?: {
+				title: string;
+				description: string;
+				link: string;
+			}[];
 		};
 		files: Array<{
 			_id: string;
@@ -97,7 +102,7 @@
 					const jsonData = await res.json();
 					subteam = jsonData.userData.subteam;
 					filesPromiseData = jsonData;
-					console.log(filesPromiseData);
+					// console.log(filesPromiseData);
 				});
 			}
 		}

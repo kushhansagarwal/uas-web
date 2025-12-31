@@ -11,7 +11,7 @@ export const load = (async () => {
         }
     });
 
-    console.log(oldEventsResponse);
+    // console.log(oldEventsResponse);
 
     if (!oldEventsResponse.ok) {
         throw new Error('Failed to fetch events');
@@ -39,7 +39,7 @@ export const load = (async () => {
         }
     });
 
-    console.log(newEventsResponse);
+    // console.log(newEventsResponse);
 
     const newEventsData: EntriesResponse = await newEventsResponse.json();
 
@@ -70,7 +70,7 @@ export const load = (async () => {
         rsvp: !event.event.hide_rsvp
     }));
 
-    console.log(newEvents);
+    // console.log(newEvents);
 
     return { events: formattedEvents, oldEvents, newEvents };
 }) satisfies PageServerLoad;
